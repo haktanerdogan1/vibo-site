@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Vibo — Şifre Sıfırlama</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fbfbfd; --text: #1c1f2a; --muted: #6a7080; --link: #0e8a7d;
+    --line: #dfe2ea; --soft: #f1f3f7; --head: #1c1f2a; --err: #b3261e; --ok: #0e7a4d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b0e17; --text: #e8ebf4; --muted: #8a93ab; --link: #4dd8c9;
+            --line: #252b3b; --soft: #141927; --head: #ffffff; --err: #ff8a80; --ok: #6fdcaa; }
+  }
+  body {
+    margin: 0; padding: 40px 16px 96px; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  main { max-width: 520px; margin: 0 auto; }
+  h1 { font-size: 26px; margin: 0 0 4px; color: var(--head); }
+  .muted { color: var(--muted); font-size: 14px; }
+  a { color: var(--link); }
+  form { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; }
+  label { font-size: 14px; font-weight: 600; display: grid; gap: 4px; }
+  input { font: inherit; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--text); }
+  button { font: inherit; font-weight: 600; padding: 11px 14px; border-radius: 8px; border: 0; background: var(--link); color: #fff; cursor: pointer; }
+  button[disabled] { opacity: .6; cursor: default; }
+  .msg { margin: 0; font-size: 15px; }
+  .err { color: var(--err); }
+  .ok { color: var(--ok); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Vibo şifreni sıfırla</h1>
+  <p class="muted">Bu sayfa yalnız Vibo'nun gönderdiği "şifre sıfırlama" e-postasındaki bağlantıyla çalışır.
+  Bağlantı tek kullanımlıktır ve sınırlı bir süre geçerlidir. <span lang="en">(Reset your Vibo password: open this page
+  from the reset email, then choose a new password.)</span></p>
+
+  <p id="invalid" class="msg err" hidden>Bağlantı geçersiz veya süresi dolmuş. Uygulamada giriş ekranındaki
+  <strong>Şifremi unuttum</strong> ile yeni bir bağlantı iste.</p>
+
+  <form id="form" hidden novalidate>
+    <label>Yeni şifre
+      <input id="pw1" type="password" autocomplete="new-password" required minlength="8">
+    </label>
+    <label>Yeni şifre (tekrar)
+      <input id="pw2" type="password" autocomplete="new-password" required minlength="8">
+    </label>
+    <p class="muted" style="margin:0">En az 8 karakter; 1 büyük harf, 1 küçük harf ve 1 sayı içermeli.</p>
+    <p id="error" class="msg err" role="alert" hidden></p>
+    <button id="submit" type="submit">Şifreyi kaydet</button>
+  </form>
+
+  <p id="done" class="msg ok" role="status" hidden>Şifren değişti. Vibo uygulamasına dönüp yeni şifrenle giriş yapabilirsin.
+  Bu sayfayı kapatabilirsin.</p>
+
+  <p class="muted" style="margin-top:32px">Bu işlemi sen başlatmadıysan e-postayı yok say; şifren değişmez.
+  Sorun olursa: <a href="mailto:h.emredemirel@gmail.com?subject=Vibo%20%C5%9Fifre%20s%C4%B1f%C4%B1rlama">h.emredemirel@gmail.com</a> ·
+  <a href="gizlilik-politikasi.html">Gizlilik Politikası</a></p>
+</main>
+<script>
+  // Supabase Auth (implicit akış) sıfırlama bağlantısı bu sayfaya #access_token=...&type=recovery ile döner.
+  // Anahtar parça (hash) sunucuya gönderilmez; sayfa açılır açılmaz adres çubuğundan ve geçmişten silinir.
+  // Sayfa hiçbir üçüncü taraf kaynak yüklemez; yeni şifre yalnız Supabase Auth'a (AB, Frankfurt) gider.
+  (function () {
+    var SUPABASE_URL = "https://fivlbtttoepctxctjwre.supabase.co";
+    // Herkese açık "anon" anahtar (uygulamada da bulunur); tek başına yetki vermez.
+    var ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZpdmxidHR0b2VwY3R4Y3Rqd3JlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM2MjA3OTcsImV4cCI6MjA5OTE5Njc5N30.yCoGAPtgW4lTpv0vdBTQtmsrilmIs6FT9ZuZz31nkRA";
+
+    var params = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+    var token = params.get("access_token");
+    var type = params.get("type");
+    try { history.replaceState(null, "", window.location.pathname); } catch (e) { /* yok say */ }
+
+    var form = document.getElementById("form");
+    var invalid = document.getElementById("invalid");
+    var errorEl = document.getElementById("error");
+    var done = document.getElementById("done");
+    var submit = document.getElementById("submit");
+
+    if (!token || type !== "recovery") { invalid.hidden = false; return; }
+    form.hidden = false;
+
+    function strong(p) {
+      return p.length >= 8 && /[A-ZÇĞİÖŞÜ]/.test(p) && /[a-zçğıöşü]/.test(p) && /\d/.test(p);
+    }
+    function showError(text) { errorEl.textContent = text; errorEl.hidden = false; }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      errorEl.hidden = true;
+      var pw1 = document.getElementById("pw1").value;
+      var pw2 = document.getElementById("pw2").value;
+      if (!strong(pw1)) return showError("Şifre en az 8 karakter olmalı; 1 büyük harf, 1 küçük harf ve 1 sayı içermeli.");
+      if (pw1 !== pw2) return showError("Şifreler aynı değil.");
+      submit.disabled = true;
+      fetch(SUPABASE_URL + "/auth/v1/user", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", apikey: ANON_KEY, Authorization: "Bearer " + token },
+        // Yönetici tarafından verilen geçici şifrenin zorunlu değişim bayrağı da kapanır.
+        body: JSON.stringify({ password: pw1, data: { must_change_password: false } }),
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (body) { return { ok: res.ok, status: res.status, body: body }; });
+        })
+        .then(function (r) {
+          if (!r.ok) {
+            var code = String((r.body && (r.body.error_code || r.body.code)) || "");
+            var msg = String((r.body && (r.body.msg || r.body.message)) || "").toLowerCase();
+            if (r.status === 401 || r.status === 403) { form.hidden = true; invalid.hidden = false; return; }
+            if (code === "same_password" || msg.indexOf("different") >= 0) throw new Error("Yeni şifre eskisinden farklı olmalı.");
+            if (code === "weak_password" || msg.indexOf("weak") >= 0 || msg.indexOf("pwned") >= 0) throw new Error("Bu şifre yeterince güçlü değil veya sızdırılmış şifreler listesinde. Başka bir şifre seç.");
+            throw new Error("Şifre değiştirilemedi. Tekrar dene.");
+          }
+          // Sıfırlama için açılan geçici oturum kapatılır; giriş uygulamadan yeni şifreyle yapılır.
+          fetch(SUPABASE_URL + "/auth/v1/logout?scope=local", {
+            method: "POST",
+            headers: { apikey: ANON_KEY, Authorization: "Bearer " + token },
+          }).catch(function () { /* yok say */ });
+          token = null;
+          form.hidden = true;
+          done.hidden = false;
+        })
+        .catch(function (err) {
+          showError(err && err.message ? err.message : "Şifre değiştirilemedi. Tekrar dene.");
+        })
+        .then(function () { submit.disabled = false; });
+    });
+  })();
+</script>
+</body>
+</html>

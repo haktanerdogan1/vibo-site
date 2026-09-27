@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vibo — Hesap Silme</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fbfbfd; --text: #1c1f2a; --muted: #6a7080; --link: #0e8a7d;
+    --line: #dfe2ea; --soft: #f1f3f7; --head: #1c1f2a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b0e17; --text: #e8ebf4; --muted: #8a93ab; --link: #4dd8c9;
+            --line: #252b3b; --soft: #141927; --head: #ffffff; }
+  }
+  body {
+    margin: 0; padding: 40px 16px 96px; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 26px; margin: 0 0 4px; color: var(--head); }
+  h2 { font-size: 19px; margin: 32px 0 8px; color: var(--head); }
+  .muted { color: var(--muted); font-size: 14px; }
+  a { color: var(--link); }
+  ul, ol { padding-left: 22px; }
+  .box { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid var(--line); padding: 8px; text-align: left; vertical-align: top; }
+  th { background: var(--soft); width: 38%; }
+  pre { white-space: pre-wrap; background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 12px; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Vibo Hesabını Silme</h1>
+  <p class="muted">Güncelleme tarihi: 26 Eylül 2026 · Uygulama: Vibo (Emre Demirel ve Haktan Erdoğan)</p>
+
+  <h2>Uygulamadan (hemen)</h2>
+  <ol>
+    <li>Vibo'yu açın ve alt menüden <strong>Profil</strong>'e gidin.</li>
+    <li>En alttaki <strong>Hesabımı kalıcı olarak sil</strong> bağlantısına dokunun.</li>
+    <li>Onay penceresinde <strong>Hesabımı sil</strong>'e dokunun. Hesabınız hemen silinir.</li>
+  </ol>
+
+  <h2>Uygulamaya erişemiyorsanız</h2>
+  <p>Vibo'da kayıtlı e-posta adresinizden
+  <a href="mailto:h.emredemirel@gmail.com?subject=Hesap%20silme%20talebi">h.emredemirel@gmail.com</a>
+  adresine "Hesap silme talebi" konulu bir e-posta gönderin. Kayıtlı adresinizden gelen talep kimlik doğrulaması
+  için yeterlidir. Hesabınız en geç 30 gün içinde (genellikle birkaç iş günü içinde) silinir ve size e-postayla
+  bildirilir.</p>
+
+  <h2>Neler silinir, neler kalır</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Silinen</th><td>Hesap (e-posta, şifre özeti), profil (ad, rol), işletme başvuru ve talepleri, açık oturumlar, size ait giriş ve hesap güvenliği olay kayıtları (silinemeyen kalıntı en geç 90 günde silinir); uygulamadan
+      silerseniz cihazdaki favoriler, ziyaret sayacı ve anket kimliği</td></tr>
+    <tr><th>Kimliği koparılarak kalan</th><td>Hesaba zaten bağlı olmayan kullanım istatistikleri; fotoğraf beyan
+      kayıtları (beyanı verenin kimliği silinir, 3 yıl sonra kayıt da silinir)</td></tr>
+    <tr><th>İşletme hesaplarında kalan</th><td>Mekan kaydı ve mekan için yüklenen fotoğraf, etkinlik ve duyurular
+      (işletmeye aittir). Bunların da kaldırılmasını ayrıca isteyebilirsiniz.</td></tr>
+    <tr><th>Güvenlik ve yasal yükümlülükler için kalan</th><td>İşletme içeriği trafik kaydı: 1 yıl + 30 gün
+      (5651 sayılı Kanun m.5/3, trafik bilgisini 1-2 yıl saklama yükümlülüğü); yönetim işlemleri kaydı: 2 yıl (KVKK
+      m.12 kapsamındaki veri güvenliği tedbirlerinin ispatı için; bu süreyi kanun değil biz belirledik); silme kaydı:
+      3 yıl, kimlik içermez (Kişisel Verilerin Silinmesi, Yok Edilmesi veya Anonim Hale Getirilmesi Hakkında
+      Yönetmelik m.7); silinen hesabın geri yükleme izi: hesap kimliğinin tek yönlü özeti ve silme zamanı, 35 gün
+      (e-posta, ad veya IP içermez; yalnız veritabanı bir yedekten geri yüklenirse hesabın yeniden silinmesi için).
+      Süre sonunda otomatik silinir</td></tr>
+    <tr><th>Sağlayıcı kayıtları</th><td>Altyapı sağlayıcısının kısa süreli istek kayıtları ve yedekler kendi
+      süreleri dolunca silinir</td></tr>
+  </table></div>
+  <p>Ayrıntılar: <a href="gizlilik-politikasi.html#hesap-silme">Gizlilik Politikası, Bölüm 5</a>.</p>
+
+  <p class="muted"><a href="gizlilik-politikasi.html">Gizlilik Politikası ve Aydınlatma Metni</a> ·
+  <a href="kvkk-basvuru.html">KVKK Başvuru Formu</a> · <a href="hesap-silme.html">Hesap Silme</a> ·
+  <a href="kullanim-kosullari.html">Kullanım Koşulları</a> · <a href="index.html">Ana sayfa</a></p>
+</main>
+</body>
+</html>

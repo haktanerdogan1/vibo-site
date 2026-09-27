@@ -3,100 +3,604 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vibo — Gizlilik Politikası</title>
+<title>Vibo — Gizlilik Politikası ve Aydınlatma Metni</title>
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    margin: 0; padding: 48px 20px 96px;
-    background: #fbfbfd; color: #1c1f2a;
-    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.65;
+  :root {
+    color-scheme: light dark;
+    --bg: #fbfbfd; --text: #1c1f2a; --muted: #6a7080; --link: #0e8a7d;
+    --line: #dfe2ea; --soft: #f1f3f7; --head: #1c1f2a;
   }
   @media (prefers-color-scheme: dark) {
-    body { background: #0b0e17; color: #e8ebf4; }
-    a { color: #4dd8c9; }
-    h1, h2 { color: #ffffff; }
-    .muted { color: #8a93ab; }
+    :root { --bg: #0b0e17; --text: #e8ebf4; --muted: #8a93ab; --link: #4dd8c9;
+            --line: #252b3b; --soft: #141927; --head: #ffffff; }
   }
-  main { max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 28px; margin: 0 0 4px; }
-  h2 { font-size: 19px; margin: 32px 0 8px; }
-  .muted { color: #6a7080; font-size: 14px; }
+  body {
+    margin: 0; padding: 40px 16px 96px; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  main { max-width: 820px; margin: 0 auto; }
+  h1 { font-size: 26px; margin: 0 0 4px; color: var(--head); }
+  h2 { font-size: 20px; margin: 40px 0 8px; color: var(--head); border-top: 1px solid var(--line); padding-top: 24px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; color: var(--head); }
+  .muted { color: var(--muted); font-size: 14px; }
+  a { color: var(--link); }
   ul { padding-left: 22px; }
-  a { color: #0e8a7d; }
+  .box { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 8px 0 16px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
+  th, td { border: 1px solid var(--line); padding: 8px; text-align: left; vertical-align: top; }
+  th { background: var(--soft); }
+  code { font-size: 13px; }
+  nav ol { padding-left: 20px; }
 </style>
 </head>
 <body>
 <main>
   <h1>Vibo Gizlilik Politikası</h1>
-  <p class="muted">Son güncelleme: 18 Eylül 2026</p>
+  <p class="muted">Güncelleme tarihi: 26 Eylül 2026 · Sürüm 2026-09-26 · Önceki yayımlanmış sürüm: 18 Eylül 2026</p>
 
-  <p>Bu politika, Vibo mobil uygulamasını ("Uygulama") kullandığınızda hangi verilerin toplandığını, nasıl kullanıldığını ve haklarınızı açıklar.</p>
+  <p>Bu sayfa iki bölümden oluşur. Birinci bölüm, 6698 sayılı Kişisel Verilerin Korunması Kanunu
+  ("KVKK") m.10 ve Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında
+  Tebliğ kapsamındaki <strong>Aydınlatma Metni</strong>dir. Sonraki bölümler işletme yetkilileri,
+  içeriklerde adı veya görüntüsü geçen kişiler, web sitesi ziyaretçileri ve hesap silme için ek
+  bilgi verir. Bu metin bilgilendirme amaçlıdır; sizden onay veya kabul beklemez.</p>
 
-  <h2>1. Veri Sorumlusu</h2>
-  <p>Uygulama, bireysel geliştiriciler Emre Demirel ve Haktan Erdoğan tarafından
-  müştereken işletilmektedir.<br>
-  İletişim: <a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a> ·
-  <a href="mailto:haktanerdogan1@gmail.com">haktanerdogan1@gmail.com</a></p>
+  <nav class="box" aria-label="İçindekiler">
+    <ol>
+      <li><a href="#aydinlatma">Kişisel Verilerin İşlenmesine İlişkin Aydınlatma Metni</a></li>
+      <li><a href="#isletme">İşletme Yetkilileri İçin Aydınlatma</a></li>
+      <li><a href="#ucuncu-kisiler">İçeriklerde Adı veya Görüntüsü Geçen Kişiler</a></li>
+      <li><a href="#konum">Konum, Harita ve Cihaz İzinleri</a></li>
+      <li><a href="#hesap-silme">Hesap Silme ve Silmeden Sonra Kalan Kayıtlar</a></li>
+      <li><a href="#web">Web Sitesi ve Çerezler</a></li>
+      <li><a href="#guvenlik">Güvenlik Tedbirleri</a></li>
+      <li><a href="#degisiklik">Değişiklikler ve Sürüm Geçmişi</a></li>
+      <li><a href="#english">Privacy Notice in English</a></li>
+    </ol>
+  </nav>
 
-  <h2>2. Toplanan Veriler</h2>
-  <p><strong>Hesap gerektirmeyen kullanım (normal kullanıcılar):</strong>
-  Uygulamayı hesap açmadan kullanabilirsiniz. Bu durumda yalnızca anonim kullanım istatistikleri toplanır:</p>
+  <!-- ===================================================================== -->
+  <h2 id="aydinlatma">1. Kişisel Verilerin İşlenmesine İlişkin Aydınlatma Metni</h2>
+
+  <h3 id="veri-sorumlusu">1.1 Veri sorumlusu</h3>
+  <p>Vibo bir şirket tarafından değil, tüzel kişiliği olmayan bir ortaklık olarak iki gerçek kişi
+  tarafından işletilmektedir. Bu iki kişi kişisel verileriniz bakımından <strong>ortak veri
+  sorumlusudur</strong>:</p>
   <ul>
-    <li>Görüntülenen mekanlar (hangi mekan detayının açıldığı)</li>
-    <li>Arama sorguları (yazdığınız arama metni)</li>
-    <li>Uygulama hataları (teknik hata mesajları)</li>
+    <li><strong>Emre Demirel</strong>: e-posta <a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a>,
+      tebligat adresi [[DOLDURULACAK: Emre Demirel'in tebligata elverişli açık adresi veya işyeri adresi]],
+      KEP [[DOLDURULACAK: Emre Demirel KEP adresi, varsa]]</li>
+    <li><strong>Haktan Erdoğan</strong>: e-posta <a href="mailto:haktanerdogan1@gmail.com">haktanerdogan1@gmail.com</a>,
+      tebligat adresi [[DOLDURULACAK: Haktan Erdoğan'ın tebligata elverişli açık adresi veya işyeri adresi]],
+      KEP [[DOLDURULACAK: Haktan Erdoğan KEP adresi, varsa]]</li>
   </ul>
-  <p>Bu kayıtlar kimliğinizle ilişkilendirilmez; ad, e-posta veya telefon içermez.</p>
+  <p><strong>Tek başvuru noktası:</strong> KVKK kapsamındaki tüm başvurularınızı
+  <a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a> adresine veya aşağıdaki posta
+  adreslerinden birine iletebilirsiniz. Haklarınızı iki ortak veri sorumlusunun her birine karşı
+  ayrı ayrı da kullanabilirsiniz; ortaklardan birine gelen başvuru en geç 2 iş günü içinde diğerine
+  iletilir.</p>
 
-  <p><strong>"Bu gece nereye?" anketi:</strong> Anket oyları, cihazınızda rastgele üretilen anonim bir kimlikle kaydedilir (gecede tek oy kuralı için). Bu kimlik kişisel bilgilerinizle ilişkilendirilmez ve uygulamayı silince sıfırlanır.</p>
-
-  <p><strong>İşletme hesabıyla giriş (mekan sahipleri ve yöneticiler):</strong>
-  İşletme paneline giriş yaptığınızda şu veriler işlenir:</p>
+  <h3 id="kimler">1.2 Kimlerin verisini işliyoruz</h3>
   <ul>
-    <li>E-posta adresi ve şifrelenmiş kimlik doğrulama bilgileri</li>
-    <li>Ad-soyad (profilde belirtilmişse)</li>
-    <li>İşletmenizle ilgili girdiğiniz içerikler (mekan bilgileri, etkinlikler, duyurular, fotoğraflar, talepler)</li>
+    <li><strong>Ziyaretçiler:</strong> uygulamayı hesap açmadan kullananlar.</li>
+    <li><strong>Üyeler:</strong> uygulamada ücretsiz kullanıcı hesabı açanlar.</li>
+    <li><strong>İşletme yetkilileri:</strong> işletme paneline başvuranlar ve mekan sahibi/yetkilisi olarak panel kullananlar (<a href="#isletme">Bölüm 2</a>).</li>
+    <li><strong>İçeriklerde adı veya görüntüsü geçenler:</strong> sahne alan sanatçılar, mekan fotoğraflarında görünen kişiler (<a href="#ucuncu-kisiler">Bölüm 3</a>).</li>
+    <li><strong>Bize yazanlar:</strong> destek, içerik bildirimi veya KVKK başvurusu için e-posta gönderenler.</li>
+    <li><strong>Yöneticiler:</strong> Vibo adına yönetim paneli hesabı kullanan kişiler. Bu kişiler ayrıca yazılı
+      olarak bilgilendirilir; işlenen verileri (hesap, yönetim işlemleri kaydı, mekan adres aramasında
+      OpenStreetMap'e giden IP adresi) aşağıdaki tablolarda da yer alır.</li>
   </ul>
 
-  <p><strong>Konum verisi:</strong> Harita ekranını açtığınızda, size en yakın mekanları ve mesafeleri gösterebilmek için cihaz konumunuza erişim izni istenir. İzin vermek zorunlu değildir; vermezseniz harita ve listeler mesafesiz çalışır. Konumunuz yalnızca cihazınızda işlenir, sunucularımıza gönderilmez ve saklanmaz.</p>
+  <h3 id="kategoriler">1.3 İşlenen kişisel veri kategorileri</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Kategori</th><th>Somut veri türleri</th><th>Kimden</th></tr>
+    <tr><td>Kimlik</td><td>Ad-soyad (üyelikte isteğe bağlı; işletme başvurusunda zorunlu), mekandaki görev</td><td>Üyeler, işletme yetkilileri</td></tr>
+    <tr><td>İletişim</td><td>E-posta adresi; işletme yetkilisinin iletişim telefonu (yayınlanmaz); işletmenin herkese açık telefon, WhatsApp, Instagram hesabı, web adresi ve adresi</td><td>Üyeler, işletme yetkilileri</td></tr>
+    <tr><td>Müşteri işlem / hesap</td><td>Hesap rolü, 18 yaş beyanının zamanı, kayıtta bağlantısı gösterilen aydınlatma metni sürümü, İşletme Koşulları kabul sürümü, işletme başvuru ve talepleri (öne çıkarma, üyelik, destek)</td><td>Üyeler, işletme yetkilileri</td></tr>
+    <tr><td>İşlem güvenliği</td><td>Şifrenin geri döndürülemez özeti (hash), oturum anahtarları, IP adresi ve istek kayıtları, giriş ve hesap güvenliği olay kayıtları (giriş, kayıt, şifre sıfırlama, hesap silme olayı; e-posta ve IP adresi ile), yönetim işlemleri kaydı, işletme içeriği trafik kaydı (IP dahil), kötüye kullanım önleme sayaçları (IP adresinin tek yönlü özeti; IP adresinin kendisi saklanmaz)</td><td>Tüm kullanıcılar; trafik kaydı işletme yetkilileri ve yöneticiler; yönetim işlemleri kaydı yöneticiler ile yöneticinin işlem yaptığı hesap ve talep sahipleri (yöneticinin açtığı işletme hesabı, rol ve başvuru durumu değişikliği). Üyenin kendi hesabını açması bu kayda yazılmaz</td></tr>
+    <tr><td>Kullanım bilgisi (hesaba bağlanmayan)</td><td>Hangi mekan sayfasının açıldığı, uygulama içi arama metni (en az 3, en fazla 80 karakter; e-posta adresi veya boşluk, tire, nokta ya da parantezle ayrılmış olsa da toplam 7 veya daha fazla rakamdan oluşan bir sayı, örneğin telefon numarası, içeren aramalar kaydedilmez), hata kayıtları</td><td>Tüm kullanıcılar</td></tr>
+    <tr><td>Cihaz kimliği (takma ad)</td><td>Gece anketi için cihazda işletim sisteminin güvenli rastgele sayı üreteciyle oluşturulan kimliğin sunucuda özetlenmiş (SHA-256) hâli, verilen oy ve tarihi</td><td>Ankete katılanlar</td></tr>
+    <tr><td>Görsel kayıt</td><td>İşletmelerin yüklediği mekan fotoğrafları; bu fotoğraflarda görünebilecek kişiler; fotoğraf denetim sonuçları</td><td>İşletme yetkilileri, fotoğrafta görünen kişiler</td></tr>
+    <tr><td>Kamuya açık kaynaktan derlenen</td><td>Mekanların herkese açık Instagram gönderi metinleri (sanatçı adı, etiketlenen kişi gibi bilgiler içerebilir), sanatçı/etkinlik adı</td><td>Sanatçılar, gönderilerde adı geçenler</td></tr>
+    <tr><td>Talep ve şikâyet</td><td>E-postayla gönderdiğiniz yazışma içeriği, KVKK başvuru bilgileri</td><td>Bize yazanlar</td></tr>
+  </table></div>
+  <p><strong>Konum:</strong> Konumunuz Vibo sunucularına gönderilmez ve Vibo tarafından saklanmaz; mesafe
+  hesabı cihazınızda yapılır. Harita altyapısının konumu nasıl işlediği <a href="#konum">Bölüm 4</a>'tedir.
+  <strong>Favoriler, dil tercihi, ziyaret sayacı</strong> yalnızca cihazınızda tutulur, bize ulaşmaz.</p>
+  <p><strong>Özel nitelikli kişisel veri</strong> (sağlık, din, siyasi düşünce, cinsel hayat, biyometrik
+  veri vb.) işlemiyoruz. Fotoğraflarda yüz tanıma veya biyometrik analiz yapılmaz. Anket ve kategori
+  seçenekleri bu tür konuları içermez.</p>
 
-  <p><strong>Fotoğraflar (yalnızca işletme hesapları):</strong> Mekan fotoğrafı yüklerken fotoğraf arşivinize erişim izni istenir; yalnızca seçtiğiniz görseller yüklenir.</p>
+  <h3 id="amaclar">1.4 Hangi veriyi, hangi amaçla ve hangi hukuki sebeple işliyoruz</h3>
+  <p>Her faaliyet için tek bir hukuki sebep yazılmıştır. "m.5/2-c" gibi atıflar KVKK m.5'in ilgili
+  bendini gösterir. Meşru menfaate (m.5/2-f) dayanan faaliyetler için yazılı denge testi yapılmıştır.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Faaliyet</th><th>Veriler</th><th>Amaç</th><th>Hukuki sebep</th><th>Toplama yöntemi</th></tr>
+    <tr><td>Uygulama içeriğini sunmak ve altyapı güvenliği</td><td>IP adresi, istek zamanı, istemci bilgisi (sunucu kayıtları)</td><td>Mekan ve etkinlik verisini cihaza iletmek, kötüye kullanımı tespit etmek</td><td>m.5/2-f meşru menfaat</td><td>Otomatik (uygulama her açıldığında)</td></tr>
+    <tr><td>Giriş ve hesap güvenliği olay kayıtları ve açık oturumlar</td><td>Olay türü (giriş, kayıt, şifre sıfırlama, hesap silme), kullanıcı kimliği, e-posta, IP adresi, zaman; açık oturumlarda oturumun açıldığı ve son yenilendiği zaman, IP adresi ve cihaz/tarayıcı bilgisi</td><td>Yetkisiz girişi ve hesabın kötüye kullanımını tespit etmek, güvenlik olaylarını incelemek</td><td>m.5/2-ç hukuki yükümlülük (KVKK m.12 veri güvenliği)</td><td>Otomatik (kimlik doğrulama altyapısı yazar)</td></tr>
+    <tr><td>Kötüye kullanım önleme sayacı</td><td>IP adresinin tek yönlü özeti, zaman aralığı, istek sayısı (IP adresinin kendisi saklanmaz)</td><td>Hesap açmadan yazılabilen kayıtların (mekan görüntüleme, arama, hata kaydı, anket oyu) otomatik olarak şişirilmesini ve kötüye kullanılmasını önlemek</td><td>m.5/2-f meşru menfaat</td><td>Otomatik (her analitik kaydında: mekan sayfası açıldığında, arama ve hata kaydı yazıldığında; ayrıca oy gönderildiğinde)</td></tr>
+    <tr><td>Kullanım istatistiği</td><td>Açılan mekan sayfası, arama metni, zaman</td><td>Hangi içeriğin ilgi gördüğünü toplu olarak görmek, aramayı iyileştirmek</td><td>m.5/2-f meşru menfaat</td><td>Otomatik</td></tr>
+    <tr><td>Hata kayıtları</td><td>Hata mesajı ve hatanın uygulamadaki yeri (en fazla 1500 karakterlik bileşen yığını); ikisinde de e-posta ve uzun rakamlar maskelenir</td><td>Uygulama hatalarını gidermek</td><td>m.5/2-f meşru menfaat</td><td>Otomatik</td></tr>
+    <tr><td>"Bu gece nereye?" anketi</td><td>Cihaz kimliğinin özeti, seçilen mekan, tarih</td><td>Gecede cihaz başına tek oy kuralını uygulamak, daha önce verdiğiniz oyu göstermek ve toplu sonucu göstermek</td><td>m.5/2-f meşru menfaat</td><td>Otomatik: anket ekranı açıldığında (önceki oyunuzu göstermek için cihaz kimliği sunucuya gönderilir, özetlenerek karşılaştırılır; bu sorgu veritabanına kayıt yazmaz) ve oy verdiğinizde</td></tr>
+    <tr><td>Üyelik ve giriş</td><td>E-posta, şifre özeti, ad (isteğe bağlı), 18 yaş beyanı zamanı, gösterilen aydınlatma sürümü, rol</td><td>Hesap açmak, kimlik doğrulamak, onay ve şifre e-postası göndermek, hesabı yönetmek ve silmek; işletme hesaplarında panele erişim. Uygulamayı kullanmak için hesap gerekmez: favoriler hesapsız cihazda tutulur, mekan ve etkinlik bilgisi herkese açıktır. Kullanıcı hesabı şu an bunların ötesinde ek bir işlev sunmaz ve bu veriler başka bir amaçla kullanılmaz.</td><td>m.5/2-c sözleşmenin kurulması ve ifası</td><td>Otomatik (kayıt formu)</td></tr>
+    <tr><td>İşletme başvurusu</td><td>Mekan adı, şehir, semt, tür, Instagram ve harita bağlantısı, yetkili adı-soyadı, görevi, iletişim telefonu, e-posta</td><td>Başvuruyu değerlendirmek, işletmeyle bağı doğrulamak, başvuru için iletişim kurmak</td><td>m.5/2-c sözleşmenin kurulması</td><td>Otomatik (başvuru formu). E-posta adresiniz onaylanana kadar başvuru bilgisi hesabınızın kayıt bilgilerinde bekletilir, ilk girişinizde yöneticilere iletilir ve oradan silinir. Gerekirse e-posta/telefon görüşmesi</td></tr>
+    <tr><td>İşletme paneli ve yayın</td><td>Mekan iletişim bilgileri, adres, açıklama, fotoğraflar, etkinlik ve duyurular, talepler, fotoğraf hak beyanı kaydı</td><td>İşletmenin içeriklerini uygulamada herkese açık yayınlamak, paket/öne çıkarma taleplerini yürütmek</td><td>m.5/2-c sözleşmenin ifası</td><td>Otomatik (panel); mekan bilgi formu ile e-posta</td></tr>
+    <tr><td>Yöneticinin kamuya açık kaynaklardan girdiği mekan iletişim bilgisi</td><td>Mekanın telefon numarası, web sitesi, adresi (işletme sahibi gerçek kişiyse ona ait olabilir); kaynak: mekanın kendi web sitesi, herkese açık harita ve rehber kayıtları</td><td>İşletme henüz bilgi vermeden mekanı kullanıcılara tanıtmak</td><td>m.5/2-f meşru menfaat. Teyit edilmemiş cep telefonu numaraları yayınlanmaz; işletme itiraz ederse bilgi kaldırılır</td><td>Yönetici girişi (veri sizden alınmaz; <a href="#ucuncu-kisiler">Bölüm 3</a>)</td></tr>
+    <tr><td>Yönetim işlemleri kaydı ve işletme içeriği trafik kaydı</td><td>İşlemi yapan hesap, zaman, işlem türü, kayıt (yöneticinin işlem yaptığı hesap veya talep dahil); trafik kaydında IP adresi. Yöneticinin bir hesabı silmesi (eski rolüyle) veya başkasının adını değiştirmesi (ad yazılmadan, yalnız değiştiği bilgisi) de kaydedilir. Üyenin kendi hesabını açması, kendi adını değiştirmesi ve kendi hesabını silmesi yönetim kaydına yazılmaz</td><td>Veri güvenliği yükümlülüğü (KVKK m.12) ve yer sağlayıcılığa ilişkin trafik bilgisi saklama (5651 m.5/3) kapsamında ispat ve inceleme</td><td>m.5/2-ç hukuki yükümlülük</td><td>Otomatik</td></tr>
+    <tr><td>Mekan fotoğraflarında görünen kişilerin görüntüsünün yayınlanması</td><td>Fotoğrafta görünen kişinin görüntüsü (Vibo bu kişileri tanımlamaz, ad veya başka bilgi eklemez)</td><td>Mekanın atmosferini kullanıcılara tanıtmak</td><td>m.5/2-f meşru menfaat (yazılı denge testi yapılmıştır). Fotoğrafı yükleyen işletme, tanınabilir kişilerden izin aldığını her yüklemede beyan eder; bu izin işletmenin kendi yükümlülüğüdür ve Vibo'nun işlemesinin hukuki sebebi değildir. İtiraz ederseniz fotoğraf kaldırılır (<a href="#ucuncu-kisiler">Bölüm 3</a>). Tanınabilir kişi içeren fotoğraflar yalnız ilgili mekanın sayfasında gösterilir; uygulamanın tanıtımında (mağaza görselleri, sunum) kullanılmaz.</td><td>İşletmenin yüklemesiyle (veri sizden alınmaz)</td></tr>
+    <tr><td>Fotoğraf denetimi</td><td>Fotoğrafa ilişkin bulgular (ör. marka, tanınabilir yüz şüphesi) ve yönetici kararı</td><td>Yasal risk taşıyan görselleri (alkol reklamı, izinsiz kişi görüntüsü) kaldırmak</td><td>m.5/2-f meşru menfaat</td><td>Yönetici incelemesi</td></tr>
+    <tr><td>Instagram'dan etkinlik derleme</td><td>Mekan hesabının herkese açık gönderi metni ve tarihi</td><td>Mekanın duyurduğu etkinlikleri takvime eklemek</td><td>m.5/2-f meşru menfaat</td><td>Otomatik, yalnız yönetici tetiklediğinde ve Instagram kaynak ayarı açıksa. <strong>Şu an kapalıdır</strong>: gönderiler okunmaz, etkinlikler işletme panelinden girilir</td></tr>
+    <tr><td>Sanatçı ve etkinlik bilgisi</td><td>Sanatçı/etkinlik adı, tarih, saat</td><td>"Bu gece kim sahnede" bilgisini göstermek</td><td>m.5/2-f meşru menfaat</td><td>İşletme girişi veya kamuya açık kaynak</td></tr>
+    <tr><td>Yönetici hesapları ve yönetim paneli</td><td>Yöneticinin e-postası, adı, rolü; mekan adres aramasında IP adresi ve arama metni</td><td>Yönetim panelini işletmek, yetkiyi sınırlamak, yeni mekanın konumunu bulmak</td><td>m.5/2-f meşru menfaat</td><td>Otomatik (yönetim paneli)</td></tr>
+    <tr><td>Yönetici işlem kaydı</td><td>İşlemi yapan yönetici, zaman, işlem türü (hesap açma, parola sıfırlama, rol ve yayın kararları, kişisel veri içeren listelerin görüntülenmesi), ilgili kayıt</td><td>Yetkinin kötüye kullanılmasını önlemek, işlemleri geriye dönük inceleyebilmek (KVKK m.12)</td><td>m.5/2-ç hukuki yükümlülük</td><td>Otomatik (yönetim paneli)</td></tr>
+    <tr><td>KVKK başvurularını yanıtlamak</td><td>Başvuru formundaki kimlik ve iletişim bilgileri, talep</td><td>KVKK m.11 ve m.13 kapsamındaki başvuruları sonuçlandırmak</td><td>m.5/2-ç hukuki yükümlülük</td><td>E-posta, posta, KEP</td></tr>
+    <tr><td>Destek ve içerik bildirimi yazışmaları</td><td>Ad, e-posta, yazışma içeriği</td><td>Sorularınızı yanıtlamak, bildirilen içeriği incelemek ve kaldırmak</td><td>m.5/2-f meşru menfaat</td><td>E-posta</td></tr>
+    <tr><td>İşletmelere paket ve fiyat teklifi (işletmenin talebi üzerine)</td><td>İşletme yetkilisinin adı ve işletmenin talebinde bildirdiği e-posta veya telefon</td><td>Teklif isteyen işletmeye paket ve fiyat bilgisini iletmek, üyelik sözleşmesini kurmak</td><td>m.5/2-c sözleşmenin kurulması (işletmenin talebi üzerine teklif)</td><td>İşletmenin talebinde verdiği iletişim kanalı; yalnız işletmelere, kullanıcılara gönderilmez</td></tr>
+    <tr><td>İşletmelere paket ve fiyat tanıtımı (talep olmadan: görüşme sonrası veya henüz başvurmamış işletmeye)</td><td>İşletme yetkilisinin adı ve işletmenin iletişim kanalı</td><td>Üyelik paketlerini işletmelere tanıtmak; mekanın uygulamada yer almasını sağlamak</td><td>m.5/2-f meşru menfaat (tek ileti; "İstemiyorum" ile ücretsiz ret)</td><td>Veri sizden alınmamışsa kaynağı işletmenizin kamuya açık iletişim kanalıdır (kendi web siteniz, Instagram profiliniz veya rehber kaydınız); görüşme yapılmışsa görüşmede verdiğiniz kanal. Gönderdiğimiz ilk iletide bu metnin İşletme Yetkilileri bölümüne bağlantı verilir. Yalnız işletmelere, kullanıcılara gönderilmez</td></tr>
+    <tr><td>Tanıtım iletisi ret kaydı</td><td>Tanıtım almak istemediğini bildiren işletmenin adı, kanalı ve tarih</td><td>Ret edenlere tekrar göndermemek</td><td>m.5/2-ç hukuki yükümlülük (6563 sayılı Kanun m.8)</td><td>"İstemiyorum" yanıtı</td></tr>
+  </table></div>
+  <p>Hiçbir veri reklam, profil çıkarma veya pazarlama iletisi için kullanılmaz; satılmaz. Vibo
+  kullanıcılarına (üyeler ve hesapsız ziyaretçiler) pazarlama e-postası, SMS veya anlık bildirim göndermez. Tek istisna
+  işletmelerdir: işletme talep ettiğinde veya görüşme sonrasında, işletmenin bildirdiği kanala paket ve fiyat tanıtımı
+  gönderilebilir; bu iletiyi "İstemiyorum" diye yanıtlayarak ücretsiz reddedebilirsiniz, ret 3 iş günü içinde uygulanır
+  (6563 sayılı Kanun m.6/2, m.8). Bu değişirse önce bu metin güncellenir ve
+  gerekiyorsa ayrı bir açık rıza istenir. Şu an açık rızaya dayanan bir işleme faaliyetimiz yoktur;
+  işletmelerin fotoğraftaki kişilerden aldığı izin, işletmenin kendi yükümlülüğüdür (<a href="kullanim-kosullari.html#isletme">İşletme Koşulları</a>).</p>
 
-  <h2>3. Verilerin Kullanım Amacı</h2>
+  <h3 id="aktarim">1.5 Kişisel verilerin aktarıldığı taraflar</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Alıcı</th><th>Rolü</th><th>Aktarılan veri</th><th>Amaç</th><th>Ülke</th></tr>
+    <tr><td>Supabase Inc.</td><td>Veri işleyen (barındırma)</td><td>Uygulamanın sunucu tarafındaki tüm veriler (hesap, işletme, analitik, anket, fotoğraf, kayıtlar)</td><td>Veritabanı, kimlik doğrulama, dosya depolama, sunucu fonksiyonları</td><td>Veriler AB'de (Almanya, Frankfurt) barındırılır; uygulamanın 26 Eylül 2026 ve sonraki sürümleri sunucu fonksiyonlarının da Frankfurt bölgesinde çalıştırılmasını ister; sağlayıcı ABD şirketidir, destek ve bakım erişimi ABD ve diğer ülkelerden olabilir</td></tr>
+    <tr><td>Cloudflare, Inc. (Supabase'in içerik dağıtım/kenar ağı)</td><td>Alt veri işleyen</td><td>Uygulamanın sunucuya gönderdiği her istek aktarım sırasında: IP adresi, istek başlıkları ve istek içeriği (giriş bilgileri ve yüklenen fotoğraflar dahil). Cloudflare bu veriyi Supabase ile arasındaki sözleşme çerçevesinde iletmek ve saldırılara karşı korumak için işler</td><td>İsteği en yakın sunucudan hızlı ve güvenli biçimde Supabase'e iletmek, hizmet dışı bırakma saldırılarını engellemek</td><td>Küresel ağ (isteğin geldiği yere en yakın kenar sunucusu, Türkiye dahil); şirket ABD</td></tr>
+    <tr><td>Supabase'in e-posta gönderim altyapısı</td><td>Alt veri işleyen</td><td>E-posta adresi, onay/şifre sıfırlama bağlantısı</td><td>Hesap onay ve şifre e-postaları</td><td>[[DOLDURULACAK: Supabase Auth e-posta gönderim sağlayıcısının ülkesi; Supabase'e sorulacak]]</td></tr>
+    <tr><td>Google LLC (Google Haritalar SDK)</td><td>Bağımsız veri sorumlusu</td><td>Cihaz IP'si, harita görüntüleme istekleri, haritada konum gösterimine izin verdiyseniz cihaz konumu; SDK'nın kendi topladığı veriler (Google'ın açıklamasına göre istek meta verisi, çökme kayıtları, SDK'ya özgü takma adlı kimlik ve haritayı kaydırma/yakınlaştırma etkileşimleri)</td><td>Haritayı göstermek; Google bu verileri kendi hizmetlerini sürdürmek ve iyileştirmek için de kullanır (Android'de her zaman; iOS'ta uygulama sürümüne bağlı olarak)</td><td>ABD</td></tr>
+    <tr><td>Apple Inc. (Apple Haritalar)</td><td>Bağımsız veri sorumlusu</td><td>Harita istekleri, izin verdiyseniz konum gösterimi</td><td>iOS'ta haritayı göstermek (Google Haritalar kullanılmayan sürümlerde)</td><td>ABD</td></tr>
+    <tr><td>Google LLC (Gmail)</td><td>Bağımsız veri sorumlusu (e-posta hizmet sağlayıcısı; Google e-posta trafiğini kendi hizmet şartlarına göre kendi amaçlarıyla da işler)</td><td>Bize gönderdiğiniz e-postalar ve ekleri</td><td>Destek, içerik bildirimi, KVKK başvurusu yazışmaları</td><td>ABD</td></tr>
+    <tr><td>Meta Platforms (Instagram) ve iki açık RSS-Bridge sunucusu (rss-bridge.org, wtf.roflcopter.fr)</td><td>Bağımsız taraflar</td><td>Yalnız mekanın Instagram kullanıcı adı (istek); dönen yanıt mekanın herkese açık gönderileridir. <strong>Şu an kapalıdır</strong>: bu sunuculara istek gönderilmez; açılmadan önce bu metin güncellenir</td><td>Mekanın herkese açık etkinlik duyurularını okumak</td><td>ABD/İrlanda (Meta); Fransa (wtf.roflcopter.fr); rss-bridge.org için ülke bilgisi yok</td></tr>
+    <tr><td>OpenStreetMap Foundation (Nominatim adres arama hizmeti)</td><td>Bağımsız taraf</td><td>Yalnız yöneticilerin mekan adres aramasında: arama metni (mekan adı/adres) ve yöneticinin cihaz IP adresi. Kullanıcı verisi gönderilmez.</td><td>Yeni mekanın haritadaki konumunu bulmak</td><td>Birleşik Krallık (OSMF; sunucular AB'de olabilir)</td></tr>
+    <tr><td>GitHub Inc. (GitHub Pages)</td><td>Bağımsız veri sorumlusu (web sitesi barındırma; GitHub ziyaretçi kayıtlarını kendi güvenlik ve yasal amaçlarıyla, kendi belirlediği süreyle tutar; biz bu kayıtlara erişmeyiz)</td><td>Yalnız viboappturkey.com ziyaretçileri: IP adresi, istek zamanı, tarayıcı bilgisi (sunucu kayıtları). İstekler GitHub'ın içerik dağıtım ağı (Fastly, Inc., ABD) üzerinden sunulur. Uygulama verisi gönderilmez.</td><td>Web sitesini sunmak ve güvenliğini sağlamak (<a href="#web">Bölüm 6</a>)</td><td>ABD</td></tr>
+    <tr><td>Uygulamanın tüm kullanıcıları (herkese açık yayın)</td><td>—</td><td>İşletmenin yayınladığı mekan bilgileri, fotoğraflar, etkinlik ve sanatçı adları</td><td>Uygulamanın temel işlevi</td><td>Dünya geneli</td></tr>
+    <tr><td>Yetkili kamu kurumları ve yargı mercileri (KVKK Kurulu, mahkemeler, savcılıklar, Siber Güvenlik Başkanlığı)</td><td>Alıcı</td><td>Yalnız kanunen zorunlu bir talepte istenen veri</td><td>Hukuki yükümlülüğün yerine getirilmesi (m.5/2-ç)</td><td>Türkiye</td></tr>
+  </table></div>
+  <p>Kullanıcıların verisi mekanlara/işletmelere aktarılmaz. Anket oylarında işletmeler yalnızca toplam
+  oy sayısını görür. Uygulamada rezervasyon, yorum veya mesajlaşma özelliği yoktur.</p>
+  <p>Yapay zekâ ile etkinlik ayıklama ve fotoğraf ön denetimi (Anthropic, ABD) ile ücretli Instagram veri
+  toplama yedeği (Apify, ABD) kodda hazır olsa da şu an <strong>kapalıdır</strong>; her biri ancak ayrı bir
+  açık ayarla çalışabilir ve hiçbir veri bu sağlayıcılara gönderilmez. Açılması hâlinde, açılmadan önce bu
+  metin güncellenir ve yurt dışına aktarım için KVKK m.9 mekanizması sağlanır.</p>
+
+  <h3 id="yurt-disi">1.6 Yurt dışına aktarım</h3>
+  <p>Türkiye için KVKK m.9 kapsamında yeterlilik kararı verilmiş bir ülke bulunmamaktadır; AB'de
+  barındırma da yurt dışına aktarımdır. Yurt dışındaki alıcılar ve durumları:</p>
   <ul>
-    <li>Uygulamanın temel işlevlerini sunmak (mekan ve etkinlik listeleme)</li>
-    <li>İşletme hesaplarını doğrulamak ve panel erişimi sağlamak</li>
-    <li>Uygulamayı iyileştirmek (hangi içeriğin ilgi gördüğünü anlamak, hataları gidermek)</li>
+    <li><strong>Supabase (AB-Almanya'da barındırma, ABD şirketi) ve alt işleyeni Cloudflare (kenar ağı, ABD şirketi):</strong> Sürekli aktarımdır. KVKK
+      m.9/4 kapsamında uygun güvence olarak Kurul'un ilan ettiği standart sözleşmenin sağlayıcıyla
+      imzalanması için süreç yürütülmektedir; bu metnin tarihi itibarıyla <strong>imzalı standart
+      sözleşme bulunmamaktadır</strong>. Sağlayıcının kendi veri işleme sözleşmesi (DPA) KVKK m.9
+      anlamında bir aktarım mekanizması yerine geçmez; onu yalnız veri işleyen sözleşmesi olarak
+      kullanıyoruz.</li>
+    <li><strong>Google ve Apple (harita), Google (Gmail), GitHub (web sitesi barındırma), Meta ve RSS-Bridge sunucuları:</strong> Bu
+      taraflar veriyi kendi amaçları ve kendi koşulları çerçevesinde işler. Aktarım niteliği ve
+      dayanağı değerlendirme aşamasındadır; bu metnin tarihi itibarıyla bu taraflarla imzalı standart
+      sözleşme bulunmamaktadır.</li>
+    <li><strong>OpenStreetMap Foundation (Birleşik Krallık; Nominatim adres arama hizmeti):</strong> Yalnız
+      yöneticilerin yeni mekan için yaptığı adres aramasında arama metni ve yöneticinin cihaz IP adresi
+      gönderilir; kullanıcı verisi gönderilmez. Bu tarafla <strong>imzalı standart sözleşme
+      bulunmamaktadır</strong>; aktarımın niteliği ve dayanağı değerlendirme aşamasındadır.</li>
   </ul>
-  <p>Veriler reklam amacıyla kullanılmaz, üçüncü taraflara satılmaz veya kiralanmaz.</p>
+  <p>Bu durum güncellendiğinde (sözleşme imzalanması, sağlayıcı değişikliği veya aktarımın
+  durdurulması) bu bölüm değiştirilir.</p>
 
-  <h2>4. Verilerin Saklanması</h2>
-  <p>Veriler, altyapı sağlayıcımız Supabase (<a href="https://supabase.com">supabase.com</a>) üzerinde, endüstri standardı şifreleme ile saklanır. Veritabanı erişimi satır düzeyi güvenlik (RLS) politikalarıyla korunur.</p>
+  <h3 id="saklama">1.7 Saklama süreleri</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Veri</th><th>Saklama süresi</th><th>Süre sonunda</th></tr>
+    <tr><td>Hesap bilgileri (e-posta, şifre özeti, ad, rol, beyan zamanları)</td><td>Hesap silinene kadar. 24 ay hiç giriş yapılmayan hesaplar yılda bir kez (Ocak ayında) elle kontrol edilir; bu hesaplara e-postayla uyarı gönderilir ve 30 gün içinde giriş yapılmazsa hesap silinir. E-postası hiç onaylanmamış ve hiç giriş yapılmamış hesap 30 gün sonra otomatik silinir.</td><td>Silme (elle; onaylanmamış hesapta otomatik)</td></tr>
+    <tr><td>İşletme başvurusu (yetkili telefonu dahil)</td><td>Başvuru sonuçlandıktan 6 ay sonra; 12 ay içinde sonuçlanmayan başvuru kapatılır ve 6 ay sonra silinir</td><td>Otomatik silme</td></tr>
+    <tr><td>Diğer işletme talepleri</td><td>Talep kapandıktan 2 yıl sonra</td><td>Otomatik silme</td></tr>
+    <tr><td>Mekan bilgileri ve fotoğraflar</td><td>Mekan yayında kaldığı sürece; işletme talep ederse veya ilişki sona ererse kaldırılır</td><td>Silme</td></tr>
+    <tr><td>Etkinlik ve sanatçı adları</td><td>Etkinlik tarihinden 2 yıl sonra; sanatçı kaydı son etkinliğinden 2 yıl sonra</td><td>Otomatik silme</td></tr>
+    <tr><td>İşletme duyuruları ve kampanyaları</td><td>Bitiş tarihinden (bitiş tarihi yoksa başlangıç tarihinden) 12 ay sonra</td><td>Otomatik silme</td></tr>
+    <tr><td>İşletme paket ve öne çıkarma kayıtları (mekan, paket, tarih, tutar)</td><td>Paketin bitişinden veya öne çıkarma gününden 2 yıl sonra (fatura ve sözleşme belgeleri uygulama dışında, kanuni süre olan 10 yıl saklanır)</td><td>Otomatik silme</td></tr>
+    <tr><td>Fotoğraf hak ve kişi izni beyanı kaydı</td><td>3 yıl</td><td>Otomatik silme</td></tr>
+    <tr><td>Fotoğraf denetim kaydı</td><td>Karar verildikten 12 ay sonra. 90 gün içinde karara bağlanmayan yükleme otomatik reddedilir (fotoğraf yayınlanmaz, dosyası silinir, kaydı 12 ay sonra silinir); yayındaki fotoğrafa ait 90 gün sonuçlanmayan denetim kaydı silinir</td><td>Otomatik silme</td></tr>
+    <tr><td>Instagram gönderi metni</td><td>30 gün (sonra metin silinir); gönderi kodu 180 gün</td><td>Otomatik silme</td></tr>
+    <tr><td>Instagram eşitleme çalışma kaydı</td><td>90 gün</td><td>Otomatik silme</td></tr>
+    <tr><td>Fotoğraf denetimindeki hata metni</td><td>30 gün</td><td>Otomatik silme (metin boşaltılır)</td></tr>
+    <tr><td>Kapatılan şikâyet/rapor kayıtları</td><td>Kaydın oluşturulmasından 2 yıl sonra</td><td>Otomatik silme</td></tr>
+    <tr><td>Rezervasyon talepleri (uygulamada yeni talep alınmamaktadır)</td><td>Talep edilen tarihten 6 ay sonra</td><td>Otomatik silme</td></tr>
+    <tr><td>Arama kayıtları</td><td>30 gün</td><td>Otomatik silme</td></tr>
+    <tr><td>Hata kayıtları</td><td>90 gün</td><td>Otomatik silme</td></tr>
+    <tr><td>Mekan görüntüleme istatistiği</td><td>12 ay</td><td>Otomatik silme</td></tr>
+    <tr><td>Anket oyları</td><td>7 gün</td><td>Otomatik silme</td></tr>
+    <tr><td>Yönetim işlemleri kaydı</td><td>2 yıl</td><td>Otomatik silme</td></tr>
+    <tr><td>İşletme içeriği trafik kaydı (IP dahil)</td><td>1 yıl + 30 gün (5651 m.5/3)</td><td>Otomatik silme</td></tr>
+    <tr><td>İmha (silme) kayıtları</td><td>3 yıl</td><td>Otomatik silme</td></tr>
+    <tr><td>Silinen hesabın geri yükleme izi (hesap kimliğinin tek yönlü özeti ve silme zamanı)</td><td>35 gün (yedek saklama süresine göre; yedekler daha uzun tutulursa bu süre de uzatılır)</td><td>Otomatik silme</td></tr>
+    <tr><td>Giriş ve hesap güvenliği olay kayıtları (e-posta, IP adresi, olay türü)</td><td>90 gün; hesabınızı silerseniz size ait kayıtlar silme işlemiyle birlikte silinir</td><td>Otomatik silme</td></tr>
+    <tr><td>Açık oturum kayıtları (oturum zamanı, IP adresi, cihaz/tarayıcı bilgisi)</td><td>Oturum 90 gün kullanılmazsa silinir (o cihazda yeniden giriş gerekir); iptal edilmiş oturum yenileme anahtarları 30 gün sonra; hesabınızı silerseniz hemen</td><td>Otomatik silme</td></tr>
+    <tr><td>Kötüye kullanım önleme sayaçları (IP adresinin tek yönlü özeti)</td><td>2 gün</td><td>Otomatik silme</td></tr>
+    <tr><td>Altyapı sağlayıcısının istek kayıtları (IP)</td><td>Sağlayıcının hizmet planına bağlı kısa süre (en fazla 7 gün)</td><td>Sağlayıcı tarafından silme</td></tr>
+    <tr><td>KVKK başvuruları ve yazışmalar</td><td>Başvuru sonuçlandıktan 3 yıl sonra</td><td>Silme</td></tr>
+    <tr><td>Destek e-postaları</td><td>Konu kapandıktan 1 yıl sonra</td><td>Silme</td></tr>
+    <tr><td>Mekan bilgi formu ve ekleri (e-posta, Google Drive veya WhatsApp ile gelen)</td><td>Bilgiler uygulamaya girildikten 30 gün sonra</td><td>Silme (e-posta kutusu, Drive, sohbet)</td></tr>
+    <tr><td>Tanıtım iletisini reddeden işletmenin kaydı (işletme adı ve iletişim kanalı)</td><td>İşletme yeniden tanıtım almak istediğini bildirene kadar, en çok 3 yıl</td><td>Silme</td></tr>
+    <tr><td>Yedekler</td><td>[[DOLDURULACAK: Supabase planına göre yedek saklama süresi; ücretsiz planda sağlayıcıya sorulacak]]</td><td>Sağlayıcı rotasyonu</td></tr>
+  </table></div>
+  <p>"Otomatik silme" yukarıdaki süreleri uygulayan veritabanı işidir. Veritabanında zamanlayıcı etkinse
+  iş her gün çalışır; etkin değilse bir yönetici yönetim panelini her açtığında (en fazla 12 saatte bir)
+  çalışır ve ayrıca her ay elle kontrol edilir. Bu nedenle bir kayıt, süresi dolduktan sonra en geç bir
+  sonraki çalıştırmada silinir. Her çalıştırma ve silinen kayıt sayıları kayıt altına alınır.</p>
 
-  <h2>5. Üçüncü Taraf Hizmetler</h2>
+  <h3 id="haklar">1.8 Haklarınız ve başvuru yolları</h3>
+  <p>KVKK m.11 uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme,
+  işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, yurt içinde veya yurt dışında
+  aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmişse düzeltilmesini isteme, KVKK m.7'deki
+  şartlar çerçevesinde silinmesini veya yok edilmesini isteme, düzeltme ve silme işlemlerinin
+  aktarıldığı üçüncü kişilere bildirilmesini isteme, münhasıran otomatik sistemlerle analiz edilmesi
+  suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme ve kanuna aykırı işleme sebebiyle
+  zarara uğramanız hâlinde zararın giderilmesini talep etme haklarına sahipsiniz.</p>
+  <p><strong>Nasıl başvurursunuz:</strong></p>
   <ul>
-    <li><strong>Supabase</strong>: veritabanı, kimlik doğrulama ve barındırma (<a href="https://supabase.com/privacy">gizlilik politikası</a>)</li>
-    <li><strong>Harita servisleri</strong>: harita görüntüleme iOS'ta Apple Haritalar, Android'de Google Haritalar altyapısıyla sağlanır; harita karoları bu servislerden yüklenir.</li>
+    <li>Uygulamada kayıtlı e-posta adresinizden <a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a> adresine e-posta,</li>
+    <li>Islak imzalı dilekçeyle yukarıdaki tebligat adreslerinden birine posta veya elden teslim,</li>
+    <li>KEP adresi, güvenli elektronik imza veya mobil imza ile,</li>
+    <li>Hazır form: <a href="kvkk-basvuru.html">KVKK Başvuru Formu</a>.</li>
   </ul>
-  <p>Uygulama bunlar dışında analitik SDK'sı, reklam ağı veya sosyal medya izleyicisi içermez.</p>
+  <p>Başvurunuz en geç <strong>30 gün</strong> içinde ücretsiz olarak sonuçlandırılır. Kayıtlı e-posta
+  adresinizden yazarsanız kimlik belgesi istemeyiz. Başvurunuz reddedilirse, yanıtı yetersiz bulursanız
+  veya 30 gün içinde yanıt verilmezse, yanıtı öğrendiğiniz tarihten itibaren 30 gün ve her durumda
+  başvuru tarihinden itibaren 60 gün içinde Kişisel Verileri Koruma Kurulu'na şikâyette bulunabilirsiniz
+  (KVKK m.14).</p>
+  <p>Üyeler hesaplarını uygulamadan kendileri silebilir (<a href="#hesap-silme">Bölüm 5</a>). Adınızı
+  uygulamada <em>Profil &gt; Adımı düzenle</em> ile düzeltebilir veya silebilirsiniz; <em>Profil &gt; Verilerimi
+  göster</em> hesabınıza bağlı kayıtların dökümünü gösterir, bunu kopyalayabilir veya paylaşabilirsiniz.
+  E-posta adresinin değiştirilmesi, diğer düzeltmeler ve eksiksiz bir kopya için yukarıdaki kanallardan
+  yazmanız yeterlidir.</p>
+  <p><strong>Otomatik kararlar:</strong> Şu an yalnızca otomatik işlemeyle hakkınızda sonuç doğuran bir karar
+  verilmez; işletme başvuruları ve fotoğraf kararları bir kişi tarafından incelenir.</p>
 
-  <h2>6. Haklarınız (KVKK ve GDPR)</h2>
+  <h3 id="yas">1.9 Yaş sınırı</h3>
+  <p>Vibo gece hayatı ve alkollü içki sunulan mekanları listeler; 18 yaş altına yönelik değildir. Hesap
+  açarken 18 yaşından büyük olduğunuzu beyan edersiniz; doğum tarihinizi istemeyiz. 18 yaş altı bir
+  kişiye ait olduğu anlaşılan hesap silinir.</p>
+
+  <!-- ===================================================================== -->
+  <h2 id="isletme">2. İşletme Yetkilileri İçin Aydınlatma</h2>
+  <p>Bu bölüm işletme paneline başvuran veya panel kullanan mekan sahibi, işletmeci, müdür ve diğer
+  yetkililer içindir. Veri sorumlusu, başvuru kanalları ve haklar <a href="#aydinlatma">Bölüm 1</a>'deki gibidir.</p>
   <ul>
-    <li>Verilerinize erişme ve kopyasını isteme</li>
-    <li>Yanlış verilerin düzeltilmesini isteme</li>
-    <li>Verilerinizin silinmesini isteme (işletme hesabınız ve bağlı veriler dahil)</li>
-    <li>İşlemeye itiraz etme</li>
+    <li><strong>Başvuru formunda</strong> mekan adı, şehir, semt, tür, Instagram ve/veya Google Maps bağlantısı,
+      adınız-soyadınız, mekandaki göreviniz, iletişim telefonunuz, e-posta adresiniz ve şifreniz alınır. Amaç
+      başvurunuzu değerlendirmek, işletmeyle bağınızı doğrulamak ve sizinle iletişim kurmaktır (m.5/2-c). Kişisel
+      telefonunuz, adınız ve e-postanız <strong>yayınlanmaz</strong>; yalnız Vibo yöneticileri görür. E-posta
+      adresinizi onaylayana kadar başvuru bilgileriniz hesabınızın kayıt bilgilerinde (Supabase, Frankfurt)
+      bekletilir; onaylayıp ilk kez giriş yaptığınızda başvuru yöneticilere iletilir ve kayıt bilgilerinden
+      silinir. 30 gün içinde onaylayıp giriş yapmazsanız başvuru bilgileri kayıt bilgilerinizden silinir;
+      e-postası hiç onaylanmamış hesap da 30 gün sonra tamamen silinir (dilediğinizde yeniden başvurabilirsiniz).
+      Başvuru sonuçlandıktan 6 ay sonra silinir.</li>
+    <li><strong>Panelde girdiğiniz</strong> mekan telefonu, WhatsApp, Instagram, web adresi, adres, açıklama,
+      fotoğraflar, etkinlikler ve duyurular uygulamada <strong>herkese açık</strong> yayınlanır. Mekan telefonu
+      olarak kişisel cep numaranızı yazmak zorunda değilsiniz; yazarsanız herkese açık görünür.</li>
+    <li><strong>Fotoğraf yüklerken</strong> her seferinde hak ve kişi izni beyanı verirsiniz; beyanın zamanı ve
+      metin sürümü 3 yıl saklanır. Beyan kaydı yazılamazsa fotoğraf yayınlanmaz. Fotoğrafta görünen kişilerin
+      iznini almak ve onları bilgilendirmek sizin sorumluluğunuzdadır (<a href="kullanim-kosullari.html#isletme">İşletme Koşulları</a>).</li>
+    <li><strong>Güvenlik ve yasal kayıt:</strong> Panelde içerik (fotoğraf yükleme dahil) eklediğinizde, değiştirdiğinizde veya
+      sildiğinizde işlemi yapan hesap, zaman, işlem türü ve IP adresiniz "işletme içeriği trafik kaydı"
+      olarak 1 yıl + 30 gün saklanır; fotoğrafın yönetici onayıyla yayına alınması veya reddedilmesi de
+      onaylayan yöneticinin hesabı ve IP adresiyle aynı kayda yazılır (m.5/2-ç; 5651 m.5/3). Rol ve mekan sahipliği değişiklikleri 2 yıl
+      saklanan yönetim kaydına yazılır.</li>
+    <li><strong>Instagram:</strong> Mekanın Instagram hesabını girerseniz, yöneticiler bu hesabın herkese açık
+      gönderilerini etkinlik takvimi için okuyabilir. Bunun için kullanıcı adı Instagram'a ve iki açık
+      RSS-Bridge sunucusuna gönderilir (<a href="#aktarim">Bölüm 1.5</a>). Bu okuma <strong>şu an kapalıdır</strong>
+      (kullanıcı adı hiçbir yere gönderilmez); açılmadan önce bu metin güncellenir. Açıldıktan sonra istemezseniz bize yazın; okuma durdurulur.</li>
+    <li><strong>Mekan bilgi formu</strong> (e-posta ile doldurulan): Formdaki bilgiler aynı amaçlarla işlenir.
+      Form ve fotoğrafları WhatsApp veya Google Drive ile gönderirseniz bu hizmetlerin sunucularından
+      (Meta, Google; yurt dışı) geçer; mümkünse e-posta tercih edin. Form ve ekleri, bilgiler uygulamaya
+      girildikten 30 gün sonra e-posta kutusundan, Drive'dan ve sohbetten silinir.</li>
+    <li><strong>Yöneticinin sizin adınıza açtığı işletme hesabı:</strong> Hesabınızı mekan bilgi formundaki
+      bilgilerle bir yönetici açtıysa, e-posta adresinize Supabase'in e-posta altyapısıyla bir davet/onay bağlantısı gönderilir ve adres onaylanmadan hesaba giriş yapılamaz. Uygulamaya ilk girişinizde kendi şifrenizi belirlerken bu metne bağlantı
+      gösterilir ve İşletme Koşulları'nı ayrı bir kutuyla kabul etmeniz istenir. Gösterilen metin sürümü ve
+      kabul zamanı hesabınızın kayıt bilgilerinde tutulur. Bu metne ve koşullara işletme panelinin altındaki
+      "Yasal metinler" bağlantılarından her zaman ulaşabilirsiniz.</li>
+    <li>Hesabınızı sildiğinizde kişisel hesap verileriniz silinir; mekan kaydı ve mekan için yüklenen
+      içerikler işletmeye ait olduğu için kalır ve mekan başka bir yetkiliye atanabilir. Bunların da
+      kaldırılmasını isterseniz bize yazın.</li>
   </ul>
-  <p>Talepleriniz için <a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a>
-  veya <a href="mailto:haktanerdogan1@gmail.com">haktanerdogan1@gmail.com</a> adresine yazmanız
-  yeterlidir; en geç 30 gün içinde yanıtlanır.</p>
 
-  <h2>7. Çocukların Gizliliği</h2>
-  <p>Uygulama gece hayatı ve restoran keşfine yöneliktir; 18 yaş altı kullanıcıları hedeflemez ve bilerek çocuklardan veri toplamaz.</p>
+  <!-- ===================================================================== -->
+  <h2 id="ucuncu-kisiler">3. İçeriklerde Adı veya Görüntüsü Geçen Kişiler</h2>
+  <p>Bu bilgilendirme, verisini doğrudan sizden almadığımız kişiler içindir (Aydınlatma Tebliği m.6).</p>
+  <ul>
+    <li><strong>Sahne alan sanatçılar:</strong> Adınız ve etkinlik bilgisi, işletmenin panelden girmesiyle veya
+      mekanın herkese açık Instagram gönderilerinden derlenerek uygulamada gösterilir. Amaç "bu gece kim
+      sahnede" bilgisini vermektir (m.5/2-f). Etkinlik tarihinden 2 yıl sonra silinir.</li>
+    <li><strong>Fotoğraflarda görünen kişiler:</strong> Mekan fotoğraflarını işletmeler yükler ve tanınabilir
+      kişiler için izin aldıklarını beyan eder; bu izin işletmenin yükümlülüğüdür. Vibo'nun fotoğrafı uygulamada
+      yayınlamasının hukuki sebebi meşru menfaattir (m.5/2-f): mekanın atmosferini tanıtmak. Vibo fotoğraftaki
+      kişileri tanımlamaz, ad eklemez; yüz tanıma yapılmaz. İşletmelerin yüklediği fotoğraflar yönetici onayından
+      sonra yayınlanır; onaya kadar herkese açık olmayan ayrı bir alanda bekler. Görüntünüzün
+      yayınlanmasına itiraz ederseniz fotoğraf kaldırılır veya kişi seçilemeyecek hâle getirilir. Fotoğraf mekan
+      yayında kaldığı sürece saklanır.</li>
+    <li><strong>Mekan iletişim bilgisi kaynaktan derlenen işletmeler:</strong> İşletme henüz Vibo'ya bilgi
+      vermemişse, mekanın telefon numarası, web sitesi ve adresi yöneticiler tarafından kamuya açık kaynaklardan
+      (mekanın kendi web sitesi, herkese açık harita ve rehber kayıtları) girilebilir. Amaç mekanı kullanıcılara
+      tanıtmaktır (m.5/2-f). İşletmece teyit edilmemiş cep telefonu numaraları yayınlanmaz. Bilgi, işletme kendi
+      bilgisini verene veya itiraz edene kadar gösterilir; itirazda gecikmeksizin kaldırılır.</li>
+    <li><strong>Instagram gönderi metinlerinde adı geçenler:</strong> Gönderi metni yalnız etkinlik tarihini ve
+      adını çıkarmak için okunur, 30 gün sonra silinir; yorumlar, beğenenler veya takipçiler toplanmaz.</li>
+  </ul>
+  <p><strong>Kaldırma talebi:</strong> Her mekan sayfasının altındaki "İçeriği bildir / kaldırılmasını iste"
+  bağlantısıyla veya <a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a> adresine yazarak
+  içeriğin kaldırılmasını isteyebilirsiniz. Kişilik hakkınızı ihlal eden içerik incelemeden sonra gecikmeksizin
+  kaldırılır; KVKK başvurusu olarak yazarsanız en geç 30 gün içinde sonuçlandırılır.</p>
 
-  <h2>8. Değişiklikler</h2>
-  <p>Bu politika güncellendiğinde bu sayfada yayınlanır ve "son güncelleme" tarihi değiştirilir.</p>
+  <!-- ===================================================================== -->
+  <h2 id="konum">4. Konum, Harita ve Cihaz İzinleri</h2>
+  <ul>
+    <li><strong>Konum (yalnız uygulama açıkken):</strong> Harita ekranında, izin penceresinden önce kısa bir
+      açıklama gösterilir. İzin verirseniz konumunuz cihazda mesafe hesabı ve haritada mavi nokta için
+      kullanılır; Vibo sunucularına gönderilmez, saklanmaz. Harita Google Haritalar SDK'sı (Android'de her
+      zaman) veya Apple Haritalar ile çizilir; bu sağlayıcılar harita isteklerini ve haritada gösterilen
+      konumu kendi gizlilik politikalarına göre işler:
+      <a href="https://policies.google.com/privacy">Google</a>,
+      <a href="https://www.apple.com/legal/privacy/">Apple</a>. Arka planda konum alınmaz.
+      İzin vermezseniz uygulama mesafesiz çalışır.</li>
+    <li><strong>Fotoğraf arşivi (yalnız işletme hesapları):</strong> Yalnız seçtiğiniz görsel yüklenir. Görselin
+      konum dahil EXIF bilgileri uygulama tarafından alınmaz ve görsel yeniden kodlanarak yüklenir. iOS'ta ve
+      Android'de görsel sistemin fotoğraf seçicisiyle seçilir: fotoğraf arşivinize erişim izni (iOS) veya depolama izni
+      (Android) istenmez; uygulama arşivinizin tamamını görmez, yalnız seçtiğiniz görseli alır.</li>
+    <li>Kamera, mikrofon, rehber, reklam kimliği, anlık bildirim ve cihaza dosya yazma (depolama yazma) izni kullanılmaz.</li>
+    <li>İzinleri istediğiniz zaman cihazınızın Ayarlar ekranından kapatabilirsiniz.</li>
+  </ul>
+
+  <!-- ===================================================================== -->
+  <h2 id="hesap-silme">5. Hesap Silme ve Silmeden Sonra Kalan Kayıtlar</h2>
+  <p>Uygulamada <strong>Profil &gt; Hesabımı kalıcı olarak sil</strong> adımıyla hesabınızı hemen silebilirsiniz.
+  Uygulamaya erişemiyorsanız <a href="hesap-silme.html">Hesap Silme</a> sayfasındaki yolu kullanın.</p>
+  <ul>
+    <li><strong>Silinenler:</strong> hesap (e-posta, şifre özeti), profil (ad, rol), işletme başvuru ve talepleriniz,
+      açık oturumlarınız, size ait giriş ve hesap güvenliği olay kayıtları (silme sırasında silinemeyen kalıntı en geç
+      90 günde silinir); uygulamadan silerseniz cihazdaki favoriler, ziyaret sayacı ve anket kimliği.</li>
+    <li><strong>Kimliği koparılarak kalanlar:</strong> kullanım istatistikleri (zaten hesaba bağlı değildir);
+      fotoğraf beyan kayıtlarında beyanı verenin kimliği silinir, beyanın zamanı ve metni süresi dolana kadar kalır.</li>
+    <li><strong>İşletme hesaplarında kalanlar:</strong> mekan kaydı, mekan için yüklenen fotoğraflar, etkinlik ve
+      duyurular işletmeye ait içerik olarak kalır; kaldırılmasını ayrıca isteyebilirsiniz.</li>
+    <li><strong>Güvenlik ve yasal yükümlülükler için kalanlar:</strong>
+      <ul>
+        <li>İşletme içeriği trafik kaydı: 1 yıl + 30 gün. Dayanak: 5651 sayılı Kanun m.5/3 (yer sağlayıcının trafik
+          bilgisini 1 yıldan az, 2 yıldan fazla olmamak üzere saklama yükümlülüğü).</li>
+        <li>Yönetim işlemleri kaydı: 2 yıl. Dayanak: KVKK m.12 kapsamında veri güvenliği tedbirlerinin ispatı ve
+          hukuki uyuşmazlıkta savunma; hukuki sebep m.5/2-ç hukuki yükümlülüktür. Bu süreyi kanun değil, veri sorumlusu olarak biz belirledik.</li>
+        <li>Silme kaydı (kimlik içermez): 3 yıl. Dayanak: Kişisel Verilerin Silinmesi, Yok Edilmesi veya Anonim Hale
+          Getirilmesi Hakkında Yönetmelik m.7 (silme işlemlerinin kaydının en az 3 yıl saklanması).</li>
+        <li>Silinen hesabın geri yükleme izi: hesap kimliğinizin gizli anahtarla üretilmiş tek yönlü özeti ve silme
+          zamanı (e-posta, ad veya IP içermez): 35 gün. Amacı, veritabanı bir yedekten geri yüklenirse silinmiş
+          hesabınızın yedekle birlikte geri gelmesini önlemek ve yeniden silmektir; başka amaçla kullanılmaz. Dayanak:
+          KVKK m.7 silme yükümlülüğünün yerine getirilmesi (m.5/2-ç).</li>
+      </ul>
+      Bu kayıtlar yalnız bu amaçlar için kullanılır ve süre sonunda otomatik silinir.</li>
+    <li>Altyapı sağlayıcısının kısa süreli istek kayıtları ve yedekler, kendi süreleri dolunca silinir.</li>
+  </ul>
+
+  <!-- ===================================================================== -->
+  <h2 id="web">6. Web Sitesi ve Çerezler</h2>
+  <p>viboappturkey.com statik bir sitedir; çerez, analitik veya reklam izleyicisi kullanmaz. Site GitHub
+  Pages (GitHub Inc., ABD) üzerinde barındırılır; GitHub bağımsız veri sorumlusu olarak ziyaretçi IP adresini güvenlik amacıyla kendi
+  kayıtlarında, kendi belirlediği süreyle işler; biz bu kayıtlara erişmeyiz. Bu nedenle çerez tercih paneli bulunmaz.</p>
+  <p><strong>Tek form: şifre sıfırlama sayfası.</strong> "Şifremi unuttum" e-postasındaki bağlantı
+  <code>sifre-sifirla.html</code> sayfasını açar. Bu sayfadaki formda girdiğiniz yeni şifre ve bağlantıdaki
+  tek kullanımlık jeton, tarayıcınızdan doğrudan Supabase Auth'a (veriler AB'de, Frankfurt) gönderilir;
+  site (GitHub) bunları almaz ve saklamaz. Jeton sayfa açılır açılmaz adres çubuğundan ve tarayıcı
+  geçmişinden silinir; sayfa üçüncü taraf kaynak yüklemez ve tarayıcıda veri saklamaz. Bu işleme, üyelik
+  faaliyetinin (<a href="#amaclar">Bölüm 1.4</a>, m.5/2-c) parçasıdır. Diğer sayfalarda form yoktur;
+  başvurular e-posta veya posta ile alınır.</p>
+
+  <!-- ===================================================================== -->
+  <h2 id="guvenlik">7. Güvenlik Tedbirleri</h2>
+  <ul>
+    <li>Uygulama ile sunucular arasındaki tüm trafik HTTPS ile şifrelenir.</li>
+    <li>Veritabanındaki her tabloda satır düzeyi erişim kuralları (RLS) vardır; her kullanıcı yalnız yetkili
+      olduğu veriye erişir. Anket oyları ve istatistikler herkese açık okunamaz.</li>
+    <li>Şifreler geri döndürülemez biçimde saklanır.</li>
+    <li>Oturum anahtarları cihazınızda işletim sisteminin şifreli deposunda (iOS Anahtar Zinciri, Android
+      Keystore) tutulur ve yedekten başka bir cihaza geri yüklenemez; Android'de uygulama verisi yedeklemesi kapalıdır.</li>
+    <li>Yönetici işlemleri ve işletme içerik değişiklikleri kayıt altına alınır.</li>
+    <li>Hesap açmadan yazılabilen kayıtlara (mekan görüntüleme, arama ve hata kayıtları, anket oyu) aynı bağlantıdan gelen istek sayısı
+      her kayıtta sayılarak sınırlanır; sınır aşılırsa kayıt yazılmaz. Bunun için IP adresinin yalnız tek yönlü özeti 2 gün tutulur.</li>
+    <li>Bir veri ihlali olursa öğrenmemizden itibaren en geç 72 saat içinde Kişisel Verileri Koruma Kurulu'na
+      bildirir, etkilenen kişileri en kısa sürede bilgilendiririz.</li>
+  </ul>
+
+  <!-- ===================================================================== -->
+  <h2 id="degisiklik">8. Değişiklikler ve Sürüm Geçmişi</h2>
+  <p>Yeni bir veri türü, amaç veya alıcı eklenmeden önce bu metin güncellenir; güncelleme tarihi ve sürüm
+  değiştirilir. Sürüm değiştiğinde uygulama, metni daha önce görmüş cihazlarda bir kez "Gizlilik metnimiz
+  güncellendi" kartı gösterir ve yeni metne bağlantı verir; önemli değişikliklerde üyelere ayrıca e-posta
+  gönderilir. Yayımlanmış her sürümün tarihli kopyası saklanır ve talep hâlinde gönderilir.</p>
+  <ul>
+    <li><strong>2026-09-26:</strong> İngilizce bölüm (§9), KVKK m.10'un tüm unsurlarını (faaliyet başına amaç, hukuki
+      sebep ve toplama yöntemi, alıcılar, yurt dışı aktarım, saklama, haklar, işletme yetkilileri) içeren tam bir
+      aydınlatma metnine genişletildi; İngilizce arayüzdeki bağlantılar bu bölüme yönlendirildi. Açık oturum
+      kayıtları ve saklama süresi, 90 gün içinde karara bağlanmayan fotoğraf denetiminin kapatılması ve paket/öne
+      çıkarma kayıtlarının saklama süresi eklendi. Instagram gönderi okumasının (RSS-Bridge sunucuları ve Instagram) şu an kapalı olduğu ve sunucu fonksiyonlarının Frankfurt bölgesinde çalıştırıldığı eklendi. iOS'ta fotoğraf arşivi izni artık istenmediği (yalnız sistem seçicisi), silinen hesabın 35 günlük geri yükleme izi ve yöneticinin hesap silme/ad değiştirme işlemlerinin yönetim kaydına yazılması eklendi. İşletmelere talep üzerine gönderilen paket/fiyat tanıtımı ve ret hakkı, mekan bilgi formunun 30 günlük saklama süresi ve hesap silmede açık oturumların ve giriş olay kayıtlarının silindiği eklendi. <em>Yayın öncesi düzeltme (2026-09-27, bu sürüme dahil):</em> işletmelere tanıtım faaliyeti ikiye ayrıldı (talep üzerine teklif m.5/2-c; talep olmadan tanıtım m.5/2-f, veri kaynağı ve ilk iletideki bilgilendirme yazıldı) ve ret kaydı ayrı satır oldu; Gmail ve GitHub Pages'in rolü "bağımsız veri sorumlusu" olarak netleştirildi.</li>
+    <li><strong>2026-09-25 (taslak, yayımlanmadı; değişiklikleri 2026-09-26 sürümüne dahildir):</strong> Aydınlatma metni ayrı bölüm olarak yeniden yazıldı; hukuki sebepler, üye
+      hesapları, işletme başvurusu, Instagram derlemesi, yurt dışı aktarım, saklama süreleri, hesap silme
+      sonrası kalan kayıtlar ve kaldırma talebi eklendi. "Anonim" ifadeleri düzeltildi.</li>
+    <li><strong>2026-09-18:</strong> İlk yayımlanan gizlilik politikası.</li>
+  </ul>
+
+  <!-- ===================================================================== -->
+  <h2 id="english" lang="en">9. Privacy Notice in English (KVKK Art. 10)</h2>
+  <div lang="en">
+  <p class="muted">This is the full privacy notice for users of the English interface under Article 10 of the Turkish
+  Personal Data Protection Law No. 6698 ("KVKK"). It has the same content as sections 1 to 5 above; if the two
+  versions differ, the Turkish text prevails. This notice is for information only; it does not ask for your consent.</p>
+
+  <h3 id="english-controller">9.1 Data controllers</h3>
+  <p>Vibo is not run by a company. It is operated by two individuals, who are <strong>joint data controllers</strong>:
+  <strong>Emre Demirel</strong> (<a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a>) and
+  <strong>Haktan Erdoğan</strong> (<a href="mailto:haktanerdogan1@gmail.com">haktanerdogan1@gmail.com</a>). Their postal
+  addresses for notices and KEP (registered e-mail) addresses are listed in <a href="#veri-sorumlusu">section 1.1</a>.
+  You can send every request to <a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a>; you may also
+  exercise your rights against each of them separately. A request received by one of them is forwarded to the other
+  within 2 business days.</p>
+
+  <h3 id="english-purposes">9.2 What we process, why, on which legal basis and how we collect it</h3>
+  <p>Each activity has one legal basis. "Art. 5/2-c" and similar references are to the paragraphs of KVKK Article 5.
+  A written balancing test has been carried out for every activity based on legitimate interest (Art. 5/2-f).</p>
+  <div class="table-wrap"><table>
+    <tr><th>Activity</th><th>Data</th><th>Purpose</th><th>Legal basis</th><th>How it is collected</th></tr>
+    <tr><td>Delivering app content and infrastructure security</td><td>IP address, request time, client information (server logs)</td><td>Send venue and event data to your device; detect abuse</td><td>Art. 5/2-f legitimate interest</td><td>Automatically, each time the app is used</td></tr>
+    <tr><td>Sign-in and account security logs; open sessions</td><td>Event type (sign-in, sign-up, password reset, account deletion), user ID, email, IP address, time; for open sessions: when the session started and was last refreshed, IP address, device/browser information</td><td>Detect unauthorised access and account misuse; investigate security incidents</td><td>Art. 5/2-ç legal obligation (data security, KVKK Art. 12)</td><td>Automatically, written by the authentication service</td></tr>
+    <tr><td>Abuse-prevention counter</td><td>One-way hash of the IP address, time window, request count (the IP address itself is not stored)</td><td>Stop records that can be written without an account (venue views, searches, error logs, poll votes) from being inflated or misused</td><td>Art. 5/2-f legitimate interest</td><td>Automatically, with every analytics record and every poll vote</td></tr>
+    <tr><td>Usage statistics</td><td>Venue page opened, search text (3 to 80 characters; searches containing an email address or a number of 7 or more digits, even with spaces, dashes, dots or brackets, are not stored), time</td><td>See in aggregate which content is popular; improve search</td><td>Art. 5/2-f legitimate interest</td><td>Automatically; not linked to your account</td></tr>
+    <tr><td>Error logs</td><td>Error message and where in the app the error occurred (component stack, up to 1500 characters); email addresses and long numbers are masked in both</td><td>Fix app errors</td><td>Art. 5/2-f legitimate interest</td><td>Automatically; not linked to your account</td></tr>
+    <tr><td>"Where to tonight?" poll</td><td>Hash of a random device ID created on your device, chosen venue, date</td><td>Apply one vote per device per night, show your earlier vote and the total result</td><td>Art. 5/2-f legitimate interest</td><td>Automatically: when the poll screen opens (the device ID is sent and compared as a hash to show your earlier vote; nothing is written) and when you vote</td></tr>
+    <tr><td>Membership and sign-in</td><td>Email, password hash, name (optional), time of your 18+ declaration, version of the notice shown at sign-up, role</td><td>Create the account, authenticate you, send confirmation and password emails, manage and delete the account; access to the business panel for business accounts. You do not need an account to use the app.</td><td>Art. 5/2-c conclusion and performance of a contract</td><td>Automatically, through the sign-up form</td></tr>
+    <tr><td>Business application</td><td>Venue name, city, district, type, Instagram and map link, representative's full name, role at the venue, contact phone, email</td><td>Assess the application, verify the link to the venue, contact you about it</td><td>Art. 5/2-c conclusion of a contract</td><td>Automatically, through the application form (see <a href="#english-business">section 9.7</a>); by email or phone if needed</td></tr>
+    <tr><td>Business panel and publication</td><td>Venue contact details, address, description, photos, events and announcements, requests, photo rights declaration record</td><td>Publish the venue's content in the app and handle package/featured requests</td><td>Art. 5/2-c performance of a contract</td><td>Automatically (panel); venue information form by email</td></tr>
+    <tr><td>Venue contact details entered by admins from public sources</td><td>Venue phone number, website and address (may belong to an individual if the business is a sole proprietorship)</td><td>Introduce the venue to users before the business provides its own information</td><td>Art. 5/2-f legitimate interest; unverified mobile numbers are not published and the data is removed on objection</td><td>Entered by an admin from the venue's own website and public map/directory listings (not collected from you)</td></tr>
+    <tr><td>Admin action log and business content traffic log</td><td>Account that performed the action, time, action type, record (including the account or request the admin acted on); IP address in the traffic log. A member opening their own account is not written to the admin log</td><td>Evidence and investigation under the data security obligation (KVKK Art. 12) and traffic data retention for hosting providers (Law No. 5651 Art. 5/3)</td><td>Art. 5/2-ç legal obligation</td><td>Automatically</td></tr>
+    <tr><td>Publishing images of people who appear in venue photos</td><td>The image of the person (Vibo does not identify them or add a name)</td><td>Show the venue's atmosphere</td><td>Art. 5/2-f legitimate interest; the uploading business declares that it obtained permission from identifiable people, which is the business's own obligation. Photos showing identifiable people are shown only on that venue's page and are not used to promote the app (store images, presentations)</td><td>Uploaded by the business (not collected from you)</td></tr>
+    <tr><td>Photo moderation</td><td>Findings about a photo (e.g. a brand, a possibly identifiable face) and the admin's decision</td><td>Remove images carrying legal risk (alcohol advertising, images of people without permission)</td><td>Art. 5/2-f legitimate interest</td><td>Admin review</td></tr>
+    <tr><td>Collecting events from Instagram</td><td>Public post text and date of the venue's Instagram account</td><td>Add events announced by the venue to the calendar</td><td>Art. 5/2-f legitimate interest</td><td>Automatically, only when an admin starts it and the Instagram source setting is on. <strong>Currently switched off</strong>: no posts are read; events are entered in the business panel</td></tr>
+    <tr><td>Artist and event information</td><td>Artist/event name, date, time</td><td>Show who is on stage tonight</td><td>Art. 5/2-f legitimate interest</td><td>Entered by the business or taken from a public source</td></tr>
+    <tr><td>Admin accounts and admin panel</td><td>Admin's email, name, role; in venue address search, IP address and search text</td><td>Run the admin panel, limit authority, find a new venue's location</td><td>Art. 5/2-f legitimate interest</td><td>Automatically (admin panel)</td></tr>
+    <tr><td>Admin activity record</td><td>Admin, time, action type (account creation, password reset, role and publication decisions, viewing lists that contain personal data), related record</td><td>Prevent misuse of authority and allow later review (KVKK Art. 12)</td><td>Art. 5/2-ç legal obligation</td><td>Automatically (admin panel)</td></tr>
+    <tr><td>Answering KVKK requests</td><td>Identity and contact details in the request, the request itself</td><td>Conclude requests under KVKK Articles 11 and 13</td><td>Art. 5/2-ç legal obligation</td><td>Email, post, KEP</td></tr>
+    <tr><td>Support and content report correspondence</td><td>Name, email, content of the message</td><td>Answer your questions; review and remove reported content</td><td>Art. 5/2-f legitimate interest</td><td>Email</td></tr>
+    <tr><td>Package and price offer for businesses (at the business's request)</td><td>Name of the business representative and the email or phone given in the business's request</td><td>Send package and price information to a business that asked for it and conclude the membership contract</td><td>Art. 5/2-c conclusion of a contract (offer at the business's request)</td><td>Contact channel given in the business's request; only to businesses, never to users</td></tr>
+    <tr><td>Package and price promotion for businesses (without a request: after a meeting or to a business that has not applied)</td><td>Name of the business representative and the business's contact channel</td><td>Promote membership packages to businesses; get the venue listed in the app</td><td>Art. 5/2-f legitimate interest (single message; free opt-out by replying "İstemiyorum")</td><td>Where the data was not obtained from you, its source is the business's public contact channel (its own website, Instagram profile or directory listing); after a meeting, the channel given in that meeting. The first message links to the Business Representatives section of this notice. Only to businesses, never to users</td></tr>
+    <tr><td>Opt-out record for promotional messages</td><td>Name of the business that declined, its channel and the date</td><td>Not to send again to those who declined</td><td>Art. 5/2-ç legal obligation (Law No. 6563 Art. 8)</td><td>"İstemiyorum" reply</td></tr>
+  </table></div>
+  <p><strong>Location</strong> is used only on your device to calculate distances and show the blue dot; it is not sent to
+  or stored by Vibo. <strong>Favourites, language choice and the visit counter</strong> stay on your device. We do not
+  process special categories of personal data (health, religion, political opinion, sex life, biometric data, etc.);
+  no face recognition is performed. No data is used for advertising, profiling or marketing, and no data is sold.
+  Vibo does not send marketing emails, SMS or push notifications to users (members and visitors without an account). The
+  only exception is businesses: when a business asks for it or after a meeting, package and price information may be sent
+  to the channel the business gave us; reply "No thanks" to decline free of charge, and this is applied within 3 business
+  days (Law No. 6563 Art. 6/2 and 8). No processing is currently based on explicit consent.</p>
+
+  <h3 id="english-recipients">9.3 Recipients</h3>
+  <ul>
+    <li><strong>Supabase Inc.</strong> (data processor; database, authentication, file storage, server functions) — all
+      server-side data; hosted in the EU (Frankfurt, Germany); app versions from 26 September 2026 also request that server functions run in the Frankfurt region; US company; support access may come from the US and other countries.</li>
+    <li><strong>Cloudflare, Inc.</strong> (Supabase's edge network, sub-processor) — every app request in transit (IP address,
+      headers and content, including sign-in details and uploaded photos); global network, US company.</li>
+    <li><strong>Supabase's email delivery service</strong> (sub-processor) — email address and confirmation/reset link; provider and country: [[DOLDURULACAK: Supabase Auth e-posta gönderim sağlayıcısının adı ve ülkesi (İngilizce), kvkk/14 A-04]].</li>
+    <li><strong>Google LLC</strong> (Google Maps SDK; independent controller) — IP address, map requests, your location if you
+      allow it to be shown on the map, SDK diagnostics; US. <strong>Apple Inc.</strong> (Apple Maps; independent controller) on iOS.</li>
+    <li><strong>Google LLC (Gmail)</strong> (independent controller; consumer email service) — emails you send us; US.</li>
+    <li><strong>Meta Platforms (Instagram)</strong> and two public RSS-Bridge servers (rss-bridge.org, wtf.roflcopter.fr) — only
+      the venue's Instagram handle is sent; the response is the venue's public posts. <strong>Currently switched off</strong>: no request is sent to them, and this notice will be updated before it is switched on.</li>
+    <li><strong>OpenStreetMap Foundation</strong> (Nominatim) — only in admins' venue address searches: search text and the admin's IP address; no user data.</li>
+    <li><strong>GitHub Inc.</strong> (GitHub Pages, served through Fastly, Inc.; independent controller that keeps visitor logs for its own security and legal purposes) — only website visitors' IP address, request time and browser information; US.</li>
+    <li><strong>All app users</strong> — venue information, photos, event and artist names published by businesses.</li>
+    <li><strong>Competent public authorities and courts</strong> — only data required by a legally binding request (Art. 5/2-ç).</li>
+  </ul>
+  <p>Users' data is <strong>not</strong> passed to venues or businesses; businesses only see total poll counts. The app has no
+  reservation, review or messaging feature. AI-based event extraction and photo pre-screening (Anthropic, US) and a paid
+  Instagram data fallback (Apify, US) exist in the code but are <strong>switched off</strong>; no data is sent to them, and this
+  notice will be updated before either is switched on.</p>
+
+  <h3 id="english-transfers">9.4 Transfers abroad</h3>
+  <p>No country has an adequacy decision under KVKK Article 9; hosting in the EU is also a transfer abroad. For Supabase and
+  Cloudflare (continuous transfer) a process is under way to sign the standard contract published by the Turkish Personal
+  Data Protection Board; <strong>as of the date of this notice no standard contract has been signed</strong>. Google, Apple, GitHub,
+  Meta, the RSS-Bridge servers and the OpenStreetMap Foundation process data for their own purposes under their own terms;
+  no standard contract has been signed with them and the nature and basis of these transfers are being assessed. This
+  section will be updated when this changes.</p>
+
+  <h3 id="english-retention">9.5 How long we keep data</h3>
+  <p>Full table: <a href="#saklama">section 1.7</a>. In summary: account data until the account is deleted (accounts with no
+  sign-in for 24 months are reviewed once a year, warned by email and deleted if there is no sign-in within 30 days; an
+  account whose email is never confirmed is deleted after 30 days); business applications 6 months after the decision;
+  other business requests 2 years after closure; events and artist names 2 years; announcements 12 months after their end
+  date; package and featured-slot records 2 years after they end; photo rights declarations 3 years; photo moderation
+  records 12 months after the decision (an upload not decided within 90 days is rejected automatically); Instagram post
+  text 30 days; searches 30 days; error logs 90 days; venue view statistics 12 months; poll votes 7 days; admin action log
+  2 years; business content traffic log 1 year + 30 days; deletion log 3 years; deleted-account restore marker (one-way hash of the account ID and deletion time, no email or IP, used only to re-delete your account if a backup is restored) 35 days; sign-in and security logs 90 days; sign-in
+  sessions deleted after 90 days without use; abuse-prevention counters 2 days; hosting provider request logs up to 7 days;
+  KVKK requests 3 years after conclusion; support emails 1 year after closure; venue information forms and attachments 30
+  days after the details are entered in the app; the record of a business that declined package information until it asks
+  for such information again, at most 3 years. Automatic deletion runs daily when the
+  database scheduler is enabled; otherwise it runs whenever an admin opens the admin panel (at most every 12 hours) and is
+  also checked manually every month.</p>
+
+  <h3 id="english-rights">9.6 Your rights and how to exercise them</h3>
+  <p>Under KVKK Article 11 you have the right to learn whether your personal data is processed; to request information
+  if it is; to learn the purpose of processing and whether data is used accordingly; to know the third parties in Turkey or
+  abroad to whom data is transferred; to request correction of incomplete or inaccurate data; to request deletion or
+  destruction under Article 7; to request that correction and deletion be notified to the third parties to whom data was
+  transferred; to object to a result against you arising exclusively from automated analysis; and to claim compensation
+  for damage caused by unlawful processing.</p>
+  <p>How to apply: email <a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a> from the email address registered
+  in the app; a signed letter to one of the postal addresses in <a href="#veri-sorumlusu">section 1.1</a>; KEP, secure electronic
+  signature or mobile signature; or the ready-made <a href="kvkk-basvuru.html">KVKK application form</a>. We conclude your
+  request free of charge within <strong>30 days</strong>. If your request is rejected, you find the answer insufficient or we do
+  not answer within 30 days, you may complain to the Personal Data Protection Board within 30 days of learning the answer
+  and in any case within 60 days of your application (KVKK Art. 14). In the app you can correct or remove your name
+  (Profile &gt; Edit my name), see the data linked to your account (Profile &gt; Show my data) and delete your account
+  (Profile &gt; Delete my account permanently). No decision producing an effect on you is made solely by automated
+  processing; business applications and photo decisions are reviewed by a person.</p>
+
+  <h3 id="english-business">9.7 Business representatives</h3>
+  <p>For venue owners, operators, managers and other representatives who apply for or use the business panel (full text:
+  <a href="#isletme">section 2</a>). The <strong>application form</strong> collects venue name, city, district, type, Instagram
+  and/or Google Maps link, your full name, role at the venue, contact phone, email and password, to assess the application,
+  verify your link to the venue and contact you (Art. 5/2-c). Your phone, name and email are <strong>not published</strong>; only
+  Vibo admins see them. Until you confirm your email, the application is kept in your account's registration data
+  (Supabase, Frankfurt); at your first sign-in it is passed to admins and removed from there. If you do not confirm and sign
+  in within 30 days, the application details are deleted, and an account whose email was never confirmed is deleted after
+  30 days. The application is deleted 6 months after it is decided. Venue phone, WhatsApp, Instagram, website, address,
+  description, photos, events and announcements you enter in the panel are <strong>published</strong>; you do not have to use your
+  personal mobile number. Each photo upload requires a rights and permission declaration, kept for 3 years. When you add,
+  change or delete content, your account, the time, the action and your IP address are kept in the business content
+  traffic log for 1 year + 30 days (Art. 5/2-ç; Law No. 5651 Art. 5/3); role and ownership changes are kept in the admin
+  action log for 2 years. If you enter the venue's Instagram account, admins may read its public posts for the event
+  calendar, which sends the handle to Instagram and two RSS-Bridge servers; this is <strong>currently switched off</strong> (the handle is not sent anywhere) and this notice will be updated before it is switched on; once on, write to us to stop it. If you send the venue
+  information form via WhatsApp or Google Drive, it passes through those services' servers abroad; email is preferred.
+  The form and attachments are deleted 30 days after the details are entered in the app.
+  If an admin opens your business account from the form, an invitation/confirmation link is sent to your email and the
+  account cannot be used until you confirm it; at first sign-in you set your own password and accept the Business Terms.
+  When you delete your account, your personal account data is deleted; the venue record and its content remain as the
+  business's content and can be removed on request.</p>
+
+  <h3 id="english-third-parties">9.8 People named or shown in content</h3>
+  <p>This part is for people whose data we do not collect from them. <strong>Artists:</strong> name and event details are
+  shown as entered by the business or taken from the venue's public Instagram posts (Art. 5/2-f), deleted 2 years after
+  the event. <strong>People in venue photos:</strong> photos are uploaded by businesses and published after admin approval on
+  the basis of legitimate interest (Art. 5/2-f); Vibo does not identify people or run face recognition, and a photo is
+  removed or the person made unrecognisable if you object. <strong>Instagram post text</strong> is read only to extract the
+  event date and name and is deleted after 30 days; comments, likes and followers are not collected. To ask for removal,
+  use "Report content / request removal" at the bottom of each venue page or write to
+  <a href="mailto:h.emredemirel@gmail.com">h.emredemirel@gmail.com</a>.</p>
+
+  <h3 id="english-location">9.9 Location, maps and device permissions</h3>
+  <p>Location is requested only while the app is open, after a short explanation. It is used on your device for distances and
+  the blue dot and is not sent to Vibo. The map is drawn by the Google Maps SDK (always on Android) or Apple Maps, which
+  process map requests and the location shown under their own privacy policies
+  (<a href="https://policies.google.com/privacy">Google</a>, <a href="https://www.apple.com/legal/privacy/">Apple</a>). No background
+  location is collected; without permission the app works without distances. Business accounts can pick photos with the system photo picker; no photo
+  library (iOS) or storage (Android) permission is requested, the app does not see your library and receives only the
+  chosen image, which is re-encoded without EXIF data (including location). Camera, microphone, contacts,
+  advertising ID and push notifications are not used. You can turn permissions off in your device settings.</p>
+
+  <h3 id="english-deletion">9.10 Account deletion and age limit</h3>
+  <p>You can delete your account immediately in the app under Profile &gt; Delete my account permanently, or see
+  <a href="hesap-silme.html">account deletion</a>. Deleted: account, profile, business applications and requests, open sessions,
+  your sign-in and security log entries (any remainder that cannot be deleted at that moment is deleted within 90 days),
+  and, if you delete in the app, the favourites, visit counter and poll ID on your device. Kept with the identity removed: usage statistics and photo declaration
+  records. Kept for security and legal obligations: business content traffic log, 1 year + 30 days (Law No. 5651
+  Art. 5/3, statutory traffic data retention); admin action log, 2 years (evidence of security measures under KVKK
+  Art. 12; this period is set by us, not by law); deletion log, 3 years, no identity (Regulation on Erasure,
+  Destruction or Anonymisation of Personal Data, Art. 7); a one-way hash of your account ID with the deletion time, 35 days,
+  used only to delete your account again if the database is restored from a backup. Vibo lists nightlife venues serving alcohol and is for people aged
+  <strong>18 and over</strong>; an account found to belong to a person under 18 is deleted.</p>
+  </div>
 </main>
 </body>
 </html>
